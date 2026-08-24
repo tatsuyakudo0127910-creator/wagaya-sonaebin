@@ -118,9 +118,10 @@
     .experts-heading{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}
     .experts-heading .lead{margin:0}
     .experts-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:stretch}
-    .experts-photo img{width:100%;height:360px;object-fit:cover;border-radius:18px}
-    .photo-caption{font-size:12px;color:var(--muted);margin-top:8px}
-    .profile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+    .experts-photo{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+    .experts-photo img{width:100%;height:360px;object-fit:cover}
+    .photo-caption{margin:0;padding:12px 16px;background:#f4f5f3;font-size:12px;color:var(--muted)}
+    .profile{background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:18px;padding:27px 30px 30px}
     .profile__role{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--orange);font-size:13px;font-weight:800}
     .profile h3{font-size:31px;margin:10px 0}
     .profile p{color:var(--muted);margin:0}
@@ -424,19 +425,19 @@
     <section class="section section--white" id="experts">
       <div class="container">
         <div class="experts-heading">
-          <div><p class="eyebrow">専門家チーム</p><h2 class="heading heading-sm">家族ごとの「使える備蓄」を、3名で考えます。</h2></div>
-          <p class="lead">標準プランは防災士2名と管理栄養士が監修。個別見積もりは、代表防災士と必要分野の専門家が内容を確認します。</p>
+          <div><p class="eyebrow">専門家チーム</p><h2 class="heading heading-sm">私たちが監修します。</h2></div>
+          <p class="lead">防災・備蓄・栄養、それぞれの視点で確認します。</p>
         </div>
         <div class="experts-main">
-          <figure class="experts-photo"><img src="assets/experts.webp" alt="濃紺ジャケットを着た防災士2名と管理栄養士"><figcaption class="photo-caption">左：佐伯 真理（管理栄養士）／中央：高橋 直人（代表防災士）／右：森田 健（防災士）</figcaption></figure>
+          <figure class="experts-photo"><img src="assets/experts-v2.webp" alt="濃紺ジャケットを着た防災士2名と管理栄養士"><figcaption class="photo-caption">左：佐伯 真理（管理栄養士）／中央：高橋 直人（代表防災士）／右：森田 彩（防災士）</figcaption></figure>
           <article class="profile">
-            <div class="profile__role"><span>代表防災士</span><span class="tag">地震災害での避難所支援経験</span></div>
+            <div class="profile__role"><span>代表防災士／防災支援歴18年</span><span class="tag">地震災害での避難所支援経験</span></div>
             <h3>高橋 直人</h3>
             <p>地震災害時の避難所支援に携わり、多様な家族の困りごとを目にしてきました。その経験から、量だけでなく「家族が実際に使えるか」「収納から取り出せるか」まで確認します。</p>
             <div class="quote">「買って終わりではなく、必要なときに迷わず使える備蓄をご提案します。」</div>
           </article>
         </div>
-        <div class="member-grid"><div class="member"><div><b>森田 健</b><span>防災士／家庭内備蓄・避難動線</span></div><span class="tag">防災用品</span></div><div class="member"><div><b>佐伯 真理</b><span>管理栄養士／長期保存食・食事制限</span></div><span class="tag">食の備え</span></div></div>
+        <div class="member-grid"><div class="member"><div><b>森田 彩</b><span>防災士／家庭防災・備蓄支援歴12年</span></div><span class="tag">防災用品</span></div><div class="member"><div><b>佐伯 真理</b><span>管理栄養士歴17年／長期保存食・食事制限</span></div><span class="tag">食の備え</span></div></div>
       </div>
     </section>
 
