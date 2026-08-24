@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="家庭ごとに必要な在宅避難用備蓄を、専門家が選び、まとめてお届け。期限前のお知らせまで支える、わが家のそなえ便。">
+  <title>わが家のそなえ便｜家庭の備蓄を、迷わず整える</title>
+  <style>
+    :root{
+      --ink:#202833;--muted:#5b6673;--navy:#173957;--orange:#b94f1f;
+      --orange-dark:#9e3f16;--orange-soft:#fff1e8;--cream:#f7f5f0;
+      --paper:#fbfaf6;--white:#fff;--blue:#e8f0f5;--trust:#dcecef;
+      --line:#dfe4e8;--shadow:0 18px 48px rgba(32,40,51,.12);
+      --radius:18px;--content:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;line-height:1.75;letter-spacing:.02em}
+    body.lock{overflow:hidden}
+    img{display:block;max-width:100%}
+    button,input,select,textarea{font:inherit}
+    button,a{touch-action:manipulation}
+    button{cursor:pointer}
+    a{color:inherit;text-decoration:none}
+    :focus-visible{outline:3px solid rgba(185,79,31,.35);outline-offset:3px}
+    .container{width:min(var(--content),calc(100% - 48px));margin-inline:auto}
+    .section{padding:96px 0;position:relative;overflow:hidden}
+    .section--white{background:var(--white)}
+    .section--cream{background:var(--cream)}
+    .section--blue{background:linear-gradient(135deg,#edf5f7 0%,#f8fbfb 70%)}
+    .eyebrow{margin:0 0 14px;color:var(--orange);font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .heading{margin:0;font-size:clamp(30px,3.1vw,48px);line-height:1.35;letter-spacing:.01em}
+    .heading-sm{font-size:clamp(27px,2.6vw,40px)}
+    .lead{margin:22px 0 0;color:var(--muted);font-size:16px;line-height:2}
+    .btn{min-height:56px;border-radius:8px;border:1px solid transparent;padding:13px 26px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;transition:.22s ease;white-space:nowrap}
+    .btn--primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(185,79,31,.2)}
+    .btn--primary:hover{background:var(--orange-dark);transform:translateY(-2px)}
+    .btn--navy{background:var(--navy);color:#fff}
+    .btn--navy:hover{background:#0c2a44;transform:translateY(-2px)}
+    .btn--outline{border-color:#b8c2ca;background:#fff;color:var(--ink)}
+    .btn--outline:hover{border-color:var(--orange);color:var(--orange)}
+    .text-link{border:0;background:transparent;color:var(--navy);font-weight:800;padding:5px 0;border-bottom:1px solid currentColor}
+    .tag{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 12px;background:var(--orange-soft);color:var(--orange-dark);font-size:12px;font-weight:800}
+    .check{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;flex:0 0 auto}
+    .desktop-only{display:block}.mobile-only{display:none}
+
+    .header{height:84px;background:rgba(247,245,240,.96);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(32,40,51,.06);backdrop-filter:blur(12px)}
+    .header__inner{height:100%;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:21px;letter-spacing:.03em}
+    .brand img{width:36px;height:36px}
+    .nav{display:flex;align-items:center;gap:28px}
+    .nav a:not(.btn){font-size:14px;font-weight:700;color:#39434e}
+    .nav a:not(.btn):hover{color:var(--orange)}
+    .menu-btn{display:none;border:0;background:transparent;width:44px;height:44px;padding:10px}
+    .menu-btn span{display:block;height:2px;background:var(--ink);margin:6px 0;transition:.2s}
+
+    .hero{background:#fff;padding:72px 0 72px;overflow:hidden}
+    .hero__main{display:grid;grid-template-columns:.88fr 1fr;gap:64px;align-items:center}
+    .hero__copy{padding:18px 0}
+    .hero__badge{margin-bottom:22px}
+    .hero h1{font-size:clamp(39px,4.2vw,62px);line-height:1.3;margin:0;letter-spacing:-.02em}
+    .hero h1 span{color:var(--orange)}
+    .hero__sub{font-size:18px;color:var(--muted);margin:24px 0 0;line-height:1.9}
+    .hero__actions{display:flex;align-items:center;gap:18px;margin-top:34px}
+    .hero__price{font-size:13px;color:var(--muted)}
+    .hero__price strong{display:block;color:var(--ink);font-size:22px;line-height:1.3}
+    .hero__visual{position:relative}
+    .hero__visual>img{width:100%;border-radius:24px}
+    .trustbar{margin-top:44px;border-radius:14px;background:var(--cream);display:grid;grid-template-columns:repeat(3,1fr);padding:20px 28px}
+    .trustbar__item{display:flex;justify-content:center;gap:10px;align-items:center;font-size:13px;font-weight:800;border-right:1px solid #d9d7d1}
+    .trustbar__item:last-child{border-right:0}
+
+    .split-heading{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:end}
+    .comparison{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .quantity-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative}
+    .quantity-card--accent{border-color:#e9bba5;box-shadow:0 14px 38px rgba(185,79,31,.09)}
+    .quantity-card__top{display:flex;align-items:center;justify-content:space-between}
+    .quantity-card__day{font-size:28px;font-weight:900}
+    .quantity-card__label{font-size:12px;color:var(--muted)}
+    .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+    .metric{background:var(--cream);border-radius:10px;padding:18px 14px;text-align:center}
+    .metric b{display:block;font-size:23px;color:var(--navy)}
+    .metric small{color:var(--muted)}
+    .source-note{margin:18px 0 0;font-size:12px;color:#6d7781}
+    .support-callout{margin-top:38px;background:var(--trust);border-radius:14px;padding:20px 26px;display:flex;align-items:flex-start;gap:12px;font-weight:700}
+    .bridge{margin-top:38px;text-align:center;font-size:22px;font-weight:900;color:var(--navy)}
+    .bridge::after{content:"";display:block;width:1px;height:42px;background:#aebac3;margin:18px auto -96px}
+
+    .values__heading{display:flex;align-items:end;justify-content:space-between;gap:30px}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .value-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-height:224px}
+    .value-card__top{display:flex;align-items:start;justify-content:space-between;gap:16px}
+    .value-card__stage{font-size:12px;color:var(--orange);font-weight:800}
+    .value-card h3{font-size:22px;line-height:1.45;margin:5px 0 0}
+    .iconbox{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--blue);flex:0 0 auto}
+    .iconbox img{width:32px;height:32px}
+    .value-card p{color:var(--muted);margin:16px 0 0;font-size:14px}
+    .timeline-labels{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:38px;color:#6a7580;font-size:13px;font-weight:800}
+    .timeline-labels i{width:60px;height:1px;background:#aeb8c0}
+    .expert-bridge{margin-top:28px;border:1px solid var(--navy);border-radius:16px;background:#edf4f6;padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .expert-bridge span{display:block;color:var(--orange);font-size:12px;font-weight:900;margin-bottom:4px}
+    .expert-bridge strong{display:block;font-size:24px;line-height:1.45}
+    .expert-bridge p{margin:0;color:var(--muted);font-size:14px}
+
+    .experts-heading{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}
+    .experts-heading .lead{margin:0}
+    .experts-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:stretch}
+    .experts-photo img{width:100%;height:360px;object-fit:cover;border-radius:18px}
+    .photo-caption{font-size:12px;color:var(--muted);margin-top:8px}
+    .profile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+    .profile__role{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--orange);font-size:13px;font-weight:800}
+    .profile h3{font-size:31px;margin:10px 0}
+    .profile p{color:var(--muted);margin:0}
+    .quote{margin-top:20px;background:var(--cream);border-left:4px solid var(--orange);padding:16px 18px;font-weight:700}
+    .member-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+    .member{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px 22px;display:flex;align-items:center;justify-content:space-between}
+    .member b{display:block}.member span{font-size:12px;color:var(--muted)}
+
+    .set-layout{display:grid;grid-template-columns:1.45fr .95fr;gap:36px;margin-top:40px;align-items:center}
+    .set-visual img{width:100%;border-radius:18px}
+    .set-visual figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+    .category-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .category{background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px}
+    .category strong{display:block;font-size:15px}.category span{font-size:12px;color:var(--muted)}
+    .set-actions{margin-top:16px}
+    .disclosure-row{width:100%;min-height:58px;border:0;border-radius:11px;background:#e8f0f2;color:var(--ink);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:900;text-align:left;transition:.2s ease}
+    .disclosure-row:hover{background:#dcebed;color:var(--navy);transform:translateY(-1px)}
+
+    .plans-header{text-align:center;max-width:820px;margin:auto}
+    .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px;align-items:stretch}
+    .plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;position:relative;transition:.24s ease}
+    .plan:hover,.plan.is-active{transform:translateY(-7px);border-color:var(--orange);box-shadow:var(--shadow)}
+    .plan--popular{border:2px solid var(--orange);padding:27px}
+    .plan__popular{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;border-radius:999px;padding:5px 18px;font-size:12px;font-weight:900;white-space:nowrap}
+    .plan__name{font-size:24px;font-weight:900;margin:0}
+    .plan__days{color:var(--orange);font-weight:800;font-size:13px}
+    .plan__family{font-size:12px;color:var(--muted);margin-top:18px}
+    .plan__price{min-height:64px;margin:8px 0 10px;display:flex;align-items:baseline;gap:4px}
+    .plan__price strong{font-size:38px;line-height:1}
+    .plan__price small{font-size:12px;color:var(--muted)}
+    .plan__caption{font-size:12px;color:var(--muted);min-height:26px}
+    .plan ul{list-style:none;margin:22px 0 26px;padding:0;display:grid;gap:10px;flex:1}
+    .plan li{display:flex;gap:9px;font-size:14px}
+    .plan .btn{width:min(100%,230px);align-self:center}
+    .plan:hover .btn--outline,.plan.is-active .btn--outline{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(185,79,31,.18)}
+    .plans-note{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 24px;color:var(--muted);font-size:13px;text-align:center}
+
+    .addons-header{display:flex;justify-content:space-between;gap:40px;align-items:end}
+    .addons-header .lead{max-width:510px;margin:0}
+    .addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .addon{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 12px 24px;overflow:hidden}
+    .addon img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+    .addon__body{padding:20px 12px 0}
+    .addon__type{font-size:12px;color:var(--orange);font-weight:800}
+    .addon h3{margin:5px 0 10px;font-size:22px}
+    .addon p{font-size:13px;color:var(--muted);margin:0}
+    .addon__price{font-size:21px;font-weight:900;color:var(--navy);margin-top:16px}
+    .addons-footer{margin-top:36px;background:var(--trust);border-radius:14px;padding:25px 30px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+
+    .flow-heading{display:grid;grid-template-columns:.8fr 1.2fr;align-items:end;gap:60px}
+    .flow-grid{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .flow-step{position:relative;padding:18px 20px}
+    .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-26px;top:33px;color:#aeb7bf;font-size:20px}
+    .flow-step__top{display:flex;justify-content:space-between;align-items:center}
+    .step-no{background:var(--orange-soft);color:var(--orange-dark);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:900}
+    .flow-icon{width:52px;height:52px;border-radius:50%;background:var(--blue);display:grid;place-items:center}
+    .flow-icon img{width:24px;height:24px}
+    .flow-step h3{font-size:20px;margin:15px 0 8px}
+    .flow-step p{font-size:13px;color:var(--muted);margin:0}
+    .flow-cta{text-align:center;margin-top:36px}
+
+    .support-layout{display:grid;grid-template-columns:1fr 1.12fr;gap:72px;align-items:center}
+    .phone-stage{height:480px;position:relative}
+    .phone-stage::before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:var(--trust);left:0;bottom:0}
+    .phone{position:absolute;left:68px;top:18px;width:238px;height:438px;background:#15191e;border-radius:38px;padding:10px;box-shadow:0 22px 60px rgba(32,40,51,.2)}
+    .phone__screen{height:100%;background:#f4f5f6;border-radius:30px;padding:36px 14px 16px;overflow:hidden;position:relative}
+    .phone__screen::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:64px;height:18px;border-radius:99px;background:#111}
+    .mail-mini{background:#fff;border-radius:10px;padding:12px;margin-top:12px;font-size:10px;color:#69737d}
+    .mail-mini strong{display:block;color:var(--ink);font-size:11px;margin:5px 0}
+    .email-card{position:absolute;width:326px;right:0;top:84px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .email-card__meta{font-size:11px;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--line)}
+    .email-card h3{font-size:18px;line-height:1.5;margin:12px 0 8px}
+    .email-card p{font-size:12px;color:var(--muted)}
+    .expiry-box{background:var(--cream);padding:11px 12px;border-radius:8px;font-size:11px}
+    .email-card .btn{min-height:42px;padding:8px 13px;font-size:12px;margin-top:14px;box-shadow:none}
+    .support-heading-accent{color:var(--orange)}
+    .support-points{display:grid;gap:12px;margin:28px 0}
+    .support-point{display:flex;gap:14px;align-items:center;background:var(--cream);border-radius:13px;padding:17px 20px}
+    .support-point:nth-child(2){background:#edf4f6}
+    .support-point b{display:block;font-size:17px}.support-point span{font-size:13px;color:var(--muted)}
+    .support-note{margin-top:32px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:12px;text-align:center;font-size:13px;color:var(--muted)}
+
+    .faq-layout{display:grid;grid-template-columns:310px 1fr;gap:60px;align-items:start}
+    .faq-list{border-top:1px solid #bcc6ce}
+    .faq-item{border-bottom:1px solid #c9d1d7}
+    .faq-q{width:100%;display:flex;align-items:center;gap:18px;padding:22px 8px;border:0;background:transparent;text-align:left;color:var(--ink);font-weight:800}
+    .faq-q span:first-child{color:var(--orange);font-size:13px}
+    .faq-q i{font-style:normal;margin-left:auto;font-size:21px;transition:.2s}
+    .faq-item.open .faq-q i{transform:rotate(45deg)}
+    .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+    .faq-a>div{overflow:hidden}
+    .faq-a p{margin:0;padding:0 46px 22px;color:var(--muted);font-size:14px}
+    .faq-item.open .faq-a{grid-template-rows:1fr}
+
+    .final-cta{background:linear-gradient(135deg,#193d5c,#102f49);color:#fff;text-align:center}
+    .final-cta .eyebrow{color:#ffc7a9}
+    .final-cta .lead{color:#dce7ef}
+    .final-cta__actions{margin-top:36px}
+    .assurances{display:flex;justify-content:center;gap:34px;margin-top:26px;color:#dce7ef;font-size:13px}
+    .footer{background:var(--cream);color:var(--ink);padding:60px 0 26px;border-top:1px solid #e0ded8}
+    .footer-main{display:flex;justify-content:space-between;gap:40px}
+    .footer .brand{color:var(--ink)}
+    .footer__company{font-size:13px;color:var(--muted);margin-top:14px}
+    .footer nav{display:grid;grid-template-columns:repeat(2,auto);gap:10px 28px;font-size:13px}
+    .footer-bottom{border-top:1px solid #d8d6d0;margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;color:#75808a;font-size:11px}
+
+    .overlay{position:fixed;inset:0;z-index:80;background:rgba(14,24,33,.62);display:none;align-items:center;justify-content:center;padding:22px}
+    .overlay.open{display:flex}
+    .modal{width:min(900px,100%);max-height:min(86vh,820px);overflow:auto;background:#fff;border-radius:20px;box-shadow:0 26px 90px rgba(0,0,0,.28)}
+    .modal__head{position:sticky;top:0;z-index:2;background:#fff;padding:24px 30px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .modal__head h2{font-size:24px;margin:0}
+    .close{border:0;background:var(--cream);width:42px;height:42px;border-radius:50%;font-size:24px}
+    .modal__body{padding:28px 30px 36px}
+    .item-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .item-group{background:var(--cream);border-radius:12px;padding:18px}
+    .item-group h3{margin:0 0 9px;font-size:17px;color:var(--navy)}
+    .item-group ul{margin:0;padding-left:20px;font-size:13px;color:var(--muted)}
+
+    .form-modal{width:min(760px,100%)}
+    .form-progress{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:0 30px 12px}
+    .form-progress span{height:4px;background:#e3e7ea;border-radius:99px}
+    .form-progress span.active{background:var(--orange)}
+    .form-view{display:none}.form-view.active{display:block}
+    .form-view h3{margin:0 0 22px;font-size:24px}
+    .field{margin-bottom:20px}
+    .field label,.field legend{display:block;font-weight:800;font-size:14px;margin-bottom:8px}
+    .required{color:var(--orange);font-size:11px;margin-left:6px}
+    .field input,.field select,.field textarea{width:100%;border:1px solid #bfc8cf;border-radius:8px;background:#fff;padding:13px 14px;color:var(--ink)}
+    .field textarea{min-height:100px;resize:vertical}
+    .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .choice{position:relative}
+    .choice input{position:absolute;opacity:0}
+    .choice label{display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;padding:10px;border:1px solid #c6ced4;border-radius:8px;cursor:pointer;font-size:13px}
+    .choice input:checked+label{border:2px solid var(--orange);background:var(--orange-soft);color:var(--orange-dark);font-weight:900}
+    .form-actions{display:flex;justify-content:space-between;gap:14px;margin-top:28px}
+    .form-actions .btn{min-width:160px}
+    .confirm-list{background:var(--cream);border-radius:12px;padding:8px 20px}
+    .confirm-row{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:13px 0;border-bottom:1px solid #deddd8;font-size:14px}
+    .confirm-row:last-child{border-bottom:0}
+    .confirm-row dt{font-weight:800}.confirm-row dd{margin:0;color:var(--muted)}
+    .complete{text-align:center;padding:16px 0 6px}
+    .complete__icon{width:78px;height:78px;border-radius:50%;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center;font-size:38px;margin:0 auto 20px}
+    .complete p{color:var(--muted)}
+    .form-error{display:none;color:#a72b22;font-size:12px;margin:-10px 0 16px}.form-error.show{display:block}
+
+    @media(max-width:900px){
+      .container{width:min(100% - 40px,680px)}
+      .section{padding:72px 0}
+      .desktop-only{display:none}.mobile-only{display:block}
+      .header{height:70px}
+      .brand{font-size:17px}.brand img{width:32px;height:32px}
+      .menu-btn{display:block}
+      .nav{position:fixed;top:70px;left:0;right:0;background:#fff;padding:18px 20px 24px;display:grid;gap:4px;box-shadow:0 18px 40px rgba(32,40,51,.15);transform:translateY(-130%);opacity:0;pointer-events:none;transition:.24s}
+      .nav.open{transform:none;opacity:1;pointer-events:auto}
+      .nav a:not(.btn){padding:11px 8px}.nav .btn{margin-top:8px;width:100%}
+      .hero{padding:44px 0 54px}
+      .hero__main{grid-template-columns:1fr;gap:34px}
+      .hero__copy{padding:0}.hero h1{font-size:36px}
+      .hero__sub{font-size:15px}
+      .hero__actions{display:grid;gap:15px}.hero__actions .btn{width:100%}.hero__price{text-align:center}
+      .hero__visual{margin-inline:-2px}
+      .trustbar{grid-template-columns:1fr;margin-top:28px;padding:8px 18px}
+      .trustbar__item{border-right:0;border-bottom:1px solid #ddd9d2;padding:13px 0}.trustbar__item:last-child{border:0}
+      .split-heading,.experts-heading,.flow-heading,.faq-layout{grid-template-columns:1fr;gap:18px}
+      .heading{font-size:30px}.heading-sm{font-size:28px}.lead{font-size:14px;margin-top:16px}
+      .comparison,.values-grid,.experts-main,.set-layout,.plans-grid,.addons-grid,.support-layout{grid-template-columns:1fr}
+      .comparison{gap:16px}.quantity-card{padding:22px 18px}
+      .metric-grid{gap:7px}.metric{padding:13px 5px}.metric b{font-size:19px}.metric small{font-size:10px}
+      .support-callout{padding:17px 18px;font-size:13px}
+      .bridge{font-size:18px}.bridge::after{margin-bottom:-72px}
+      .values__heading,.addons-header{display:block}
+      .value-card{min-height:0}.timeline-labels{gap:8px}.timeline-labels i{width:28px}
+      .expert-bridge{grid-template-columns:1fr;gap:14px;padding:20px}.expert-bridge strong{font-size:20px}
+      .experts-photo img{height:auto}.profile{padding:24px 20px}.profile h3{font-size:27px}
+      .member-grid{grid-template-columns:1fr}
+      .set-layout{gap:22px}.category-list{grid-template-columns:1fr 1fr;gap:8px}.category{padding:13px 11px}
+      .plans-grid{gap:22px}.plan{padding:24px 20px}.plan--popular{padding:23px 19px}.plan__price{min-height:74px}
+      .plan .btn{width:100%;max-width:260px}
+      .addons-header .lead{margin-top:16px}.addon img{height:auto}
+      .addons-footer{display:block;padding:22px 20px}.addons-footer .text-link{margin-top:14px}
+      .flow-grid{grid-template-columns:1fr;padding:16px;gap:4px}
+      .flow-step{padding:18px}.flow-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px}
+      .phone-stage{height:420px;transform:scale(.86);transform-origin:left top;width:116%;margin-bottom:-46px}
+      .support-layout{gap:28px}
+      .faq-layout{gap:28px}.faq-q{padding:19px 4px;font-size:14px}.faq-a p{padding-left:34px;padding-right:15px}
+      .assurances{display:grid;gap:8px}.footer-main{display:grid}.footer nav{grid-template-columns:1fr 1fr}.footer-bottom{display:grid;gap:7px}
+      .modal__head{padding:18px 20px}.modal__head h2{font-size:19px}.modal__body{padding:22px 20px 30px}
+      .item-grid{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr 1fr}.form-progress{margin-inline:20px}
+      .form-actions .btn{min-width:0;flex:1;padding-inline:12px}
+      .confirm-row{grid-template-columns:1fr;gap:2px}
+    }
+    @media(max-width:420px){
+      .hero h1{font-size:33px}
+      .phone-stage{transform:scale(.75);width:133%;margin-bottom:-95px}
+      .category-list{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="わが家のそなえ便 トップへ"><img src="assets/brand.png" alt=""><span>わが家のそなえ便</span></a>
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="#service">サービス</a><a href="#experts">専門家</a><a href="#contents">セット内容</a><a href="#plans">プラン</a><a href="#faq">FAQ</a>
+        <button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero__main">
+          <div class="hero__copy">
+            <span class="tag hero__badge"><span class="check">✓</span>在宅避難用・家庭備蓄サービス</span>
+            <h1>家庭の備蓄を、<br><span>迷わず整える。</span></h1>
+            <p class="hero__sub">家族構成や暮らしに合わせて、必要なものを専門家が選定。食品・水・衛生用品・防災用品を、使いやすくまとめてお届けします。</p>
+            <div class="hero__actions">
+              <button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼 <span>→</span></button>
+              <div class="hero__price">4人家族の参考価格<strong>64,800円から</strong><small>税込・送料別途見積もり</small></div>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <img src="assets/hero.webp" alt="明るいリビングで届いた備蓄セットを確認する家族">
+          </div>
+        </div>
+        <div class="trustbar">
+          <div class="trustbar__item"><span class="check">✓</span>防災士2名＋管理栄養士が監修</div>
+          <div class="trustbar__item"><span class="check">✓</span>家族に合わせて数量を調整</div>
+          <div class="trustbar__item"><span class="check">✓</span>期限の約6か月前にお知らせ</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="service">
+      <div class="container">
+        <div class="split-heading">
+          <div><p class="eyebrow">公的な備蓄目安を基に比較</p><h2 class="heading heading-sm">備蓄は「最低3日、できれば7日」。<br>必要量は、家族の人数で大きく変わります。</h2></div>
+          <p class="lead">大人2人・小学生2人の4人家族を例に、在宅避難で必要な食事・水・トイレの量を比べました。</p>
+        </div>
+        <div class="comparison">
+          <article class="quantity-card">
+            <div class="quantity-card__top"><div><span class="quantity-card__label">まず備えるなら</span><div class="quantity-card__day">4人家族・3日分</div></div><span class="tag">基本の備え</span></div>
+            <div class="metric-grid"><div class="metric"><small>飲料水</small><b>36L</b><small>2L×18本相当</small></div><div class="metric"><small>食事</small><b>36食</b><small>1人1日3食</small></div><div class="metric"><small>トイレ</small><b>60回</b><small>1人1日5回</small></div></div>
+          </article>
+          <article class="quantity-card quantity-card--accent">
+            <div class="quantity-card__top"><div><span class="quantity-card__label">より安心を求めるなら</span><div class="quantity-card__day">4人家族・7日分</div></div><span class="tag">推奨の備え</span></div>
+            <div class="metric-grid"><div class="metric"><small>飲料水</small><b>84L</b><small>2L×42本相当</small></div><div class="metric"><small>食事</small><b>84食</b><small>1人1日3食</small></div><div class="metric"><small>トイレ</small><b>140回</b><small>1人1日5回</small></div></div>
+          </article>
+        </div>
+        <p class="source-note">※水は1人1日3L、食事は1日3食、携帯トイレは1日5回を基準にした目安です。年齢、体格、住環境、ペットの有無などにより必要量は変わります。</p>
+        <div class="support-callout"><span class="check">✓</span><span>このほかにも、照明・ラジオ・衛生用品・保温用品などが必要です。家族構成や住まい、ペットの有無まで確認して、必要な量をご提案します。</span></div>
+        <p class="bridge">家庭でひとつずつそろえるのは、大変だから。</p>
+      </div>
+    </section>
+
+    <section class="section section--blue">
+      <div class="container">
+        <div class="values__heading"><div><p class="eyebrow">わが家のそなえ便ができること</p><h2 class="heading heading-sm">備蓄の準備も、期限管理も。ひとつのサービスで。</h2></div></div>
+        <div class="values-grid">
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入前</span><h3>専門家が選ぶ</h3></div><span class="iconbox"><img src="assets/value-expert.png" alt=""></span></div><p>家族構成や住環境を確認し、防災士と管理栄養士が必要な品目と数量を整えます。</p></article>
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">お届け時</span><h3>分類して届ける</h3></div><span class="iconbox"><img src="assets/value-delivery.png" alt=""></span></div><p>食品・衛生・照明などを分けて収納。内容一覧と期限表を付け、届いた日から管理しやすくします。</p></article>
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入後</span><h3>期限前に知らせる</h3></div><span class="iconbox"><img src="assets/value-notice.png" alt=""></span></div><p>最も早い期限の約6か月前に年1回メールで通知。対象品と交換候補をまとめてご案内します。</p></article>
+        </div>
+        <div class="timeline-labels"><span>選ぶ</span><i></i><span>届ける</span><i></i><span>知らせる</span></div>
+        <div class="expert-bridge"><div><span>この仕組みを支えるのは</span><strong>防災士2名＋管理栄養士の専門チーム</strong></div><p>標準プランは3名で監修。個別見積もりは、代表防災士と必要分野の専門家が内容を確認します。</p></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="experts">
+      <div class="container">
+        <div class="experts-heading">
+          <div><p class="eyebrow">専門家チーム</p><h2 class="heading heading-sm">家族ごとの「使える備蓄」を、3名で考えます。</h2></div>
+          <p class="lead">標準プランは防災士2名と管理栄養士が監修。個別見積もりは、代表防災士と必要分野の専門家が内容を確認します。</p>
+        </div>
+        <div class="experts-main">
+          <figure class="experts-photo"><img src="assets/experts.webp" alt="濃紺ジャケットを着た防災士2名と管理栄養士"><figcaption class="photo-caption">左：佐伯 真理（管理栄養士）／中央：高橋 直人（代表防災士）／右：森田 健（防災士）</figcaption></figure>
+          <article class="profile">
+            <div class="profile__role"><span>代表防災士</span><span class="tag">地震災害での避難所支援経験</span></div>
+            <h3>高橋 直人</h3>
+            <p>地震災害時の避難所支援に携わり、多様な家族の困りごとを目にしてきました。その経験から、量だけでなく「家族が実際に使えるか」「収納から取り出せるか」まで確認します。</p>
+            <div class="quote">「買って終わりではなく、必要なときに迷わず使える備蓄をご提案します。」</div>
+          </article>
+        </div>
+        <div class="member-grid"><div class="member"><div><b>森田 健</b><span>防災士／家庭内備蓄・避難動線</span></div><span class="tag">防災用品</span></div><div class="member"><div><b>佐伯 真理</b><span>管理栄養士／長期保存食・食事制限</span></div><span class="tag">食の備え</span></div></div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="contents">
+      <div class="container">
+        <div class="split-heading">
+          <div><p class="eyebrow">セット内容</p><h2 class="heading heading-sm">食料・トイレ・照明まで。<br>必要な備えを、ひとまとめに。</h2></div>
+          <p class="lead">初日は無加熱で食べられるものを、以降は温かい食事も組み合わせます。用品はカテゴリー別に硬質収納ボックスへ、水は別箱で必要量をお届けします。</p>
+        </div>
+        <div class="set-layout">
+          <figure class="set-visual"><img src="assets/products.webp" alt="4人家族7日分の備蓄品をカテゴリー別に広げた様子"><figcaption>標準プラン・大人2人＋小学生2人・7日分のイメージ。水は別箱で配送します。</figcaption></figure>
+          <div>
+            <div class="category-list"><div class="category"><strong>食料・水</strong><span>84食・保存水84L</span></div><div class="category"><strong>トイレ・衛生</strong><span>携帯トイレ140回分・衛生用品</span></div><div class="category"><strong>調理・保温</strong><span>カセットコンロ・保温用品</span></div><div class="category"><strong>明かり・電源</strong><span>LEDライト・モバイルバッテリー</span></div><div class="category"><strong>情報・安全</strong><span>多機能ラジオ・救急用品</span></div><div class="category"><strong>収納・管理</strong><span>収納箱・内容一覧・期限表</span></div></div>
+            <div class="set-actions"><button class="disclosure-row js-open-items" type="button" data-modal="items-main"><span>標準プランの全品目を見る</span><span>→</span></button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="plans">
+      <div class="container">
+        <div class="plans-header"><p class="eyebrow">料金プラン</p><h2 class="heading heading-sm">必要な日数と安心度に合わせて、3つの標準プランから。</h2><p class="lead">家族の人数に合わせて内容量と価格を調整します。まずは備える日数と必要な安心度からお選びください。</p></div>
+        <div class="plans-grid">
+          <article class="plan" tabindex="0"><span class="plan__days">3日分</span><h3 class="plan__name">基本プラン</h3><div class="plan__family">4人家族の税込参考価格</div><div class="plan__price"><strong>64,800</strong><small>円</small></div><div class="plan__caption">最低限をひと通り整えたい家庭へ</div><ul><li><span class="check">✓</span>食事36食・保存水36L</li><li><span class="check">✓</span>携帯トイレ60回分</li><li><span class="check">✓</span>調理・衛生・照明用品</li><li><span class="check">✓</span>保温シート4枚</li></ul><button class="btn btn--outline js-open-form" type="button" data-plan="基本プラン">このプランで見積もる</button></article>
+          <article class="plan plan--popular" tabindex="0"><span class="plan__popular">おすすめ</span><span class="plan__days">7日分</span><h3 class="plan__name">標準プラン</h3><div class="plan__family">4人家族の税込参考価格</div><div class="plan__price"><strong>139,800</strong><small>円</small></div><div class="plan__caption">1週間分をバランスよく備えたい家庭へ</div><ul><li><span class="check">✓</span>食事84食・保存水84L</li><li><span class="check">✓</span>携帯トイレ140回分</li><li><span class="check">✓</span>調理・衛生・照明用品</li><li><span class="check">✓</span>簡易マット4枚・期限通知</li></ul><button class="btn btn--outline js-open-form" type="button" data-plan="標準プラン">このプランで見積もる</button></article>
+          <article class="plan" tabindex="0"><span class="plan__days">7日分＋電源・季節対応</span><h3 class="plan__name">安心プラン</h3><div class="plan__family">4人家族の税込参考価格</div><div class="plan__price"><strong>189,800</strong><small>円</small></div><div class="plan__caption">停電や暑さ・寒さまで備えたい家庭へ</div><ul><li><span class="check">✓</span>標準プランの全内容</li><li><span class="check">✓</span>約300Whの小型ポータブル電源</li><li><span class="check">✓</span>夏用・冬用パックから選択</li><li><span class="check">✓</span>住まいに合わせた保管提案</li></ul><button class="btn btn--outline js-open-form" type="button" data-plan="安心プラン">このプランで見積もる</button></article>
+        </div>
+        <div class="plans-note">参考価格：大人2人＋小学生2人。人数・年齢・既存の備蓄・追加パック・配送地域により価格は前後します。送料は地域別にお見積もりします。</div>
+      </div>
+    </section>
+
+    <section class="section section--blue" id="addons">
+      <div class="container">
+        <div class="addons-header"><div><p class="eyebrow">追加パック</p><h2 class="heading heading-sm">家族の事情に合わせて、必要な備えを追加できます。</h2></div><p class="lead">基本セットの食事量は年齢に合わせて調整。さらに、嗜好や衛生用品、ペットなど家庭ごとの事情を追加パックで補えます。</p></div>
+        <div class="addons-grid">
+          <article class="addon"><img src="assets/child.webp" alt="子ども向け食品と安心用品"><div class="addon__body"><span class="addon__type">子ども1人分</span><h3>子ども安心パック</h3><p>食べ慣れた味への置き換え、子ども用マスク、安心カードなど。購入プランに合わせて3日・7日分をご用意。</p><div class="addon__price">3日 3,800円〜／7日 6,800円〜</div></div></article>
+          <article class="addon"><img src="assets/women.webp" alt="女性向け衛生用品"><div class="addon__body"><span class="addon__type">対象者1人分</span><h3>女性衛生パック</h3><p>生理用品、目隠し袋、清拭用品など。普段使っている種類や必要量を確認して調整します。</p><div class="addon__price">3日 3,300円〜／7日 5,500円〜</div></div></article>
+          <article class="addon"><img src="assets/pet.webp" alt="犬猫向けのフードと防災用品"><div class="addon__body"><span class="addon__type">犬10kg以下・猫5kg以下</span><h3>犬・猫基本パック</h3><p>普段の銘柄を確認したフード、水、食器、排泄用品。犬猫は5日・7日分、その他の動物は個別対応。</p><div class="addon__price">5日 7,800円〜／7日 9,800円〜</div></div></article>
+        </div>
+        <div class="addons-footer"><div><b>乳幼児・高齢者・アレルギー・食事制限にも対応</b><div>内容を確認し、追加パックまたは個別調整でご提案します。</div></div><button class="text-link js-open-items" type="button" data-modal="items-addon">追加パックの全品目を見る →</button></div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="flow">
+      <div class="container">
+        <div class="flow-heading"><div><p class="eyebrow">ご利用の流れ</p><h2 class="heading heading-sm">簡単な入力から、お届けまで。</h2></div><p class="lead">入力項目は必要最小限。防災士が内容を確認し、2営業日以内に見積もりをご案内します。営業電話はありません。</p></div>
+        <div class="flow-grid">
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 01</span><span class="flow-icon"><img src="assets/flow-form.png" alt=""></span></div><h3>フォーム入力</h3><p>家族構成・住環境・希望プランを簡単に入力します。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 02</span><span class="flow-icon"><img src="assets/flow-expert.png" alt=""></span></div><h3>専門家が確認</h3><p>代表防災士と必要分野の専門家が内容を確認します。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 03</span><span class="flow-icon"><img src="assets/flow-mail.png" alt=""></span></div><h3>見積もりを送付</h3><p>2営業日以内にメールでご案内。希望者はオンライン相談も可能です。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 04</span><span class="flow-icon"><img src="assets/flow-box.png" alt=""></span></div><h3>ご注文・お届け</h3><p>注文確定後1〜2週間以内。水と用品が別便になる場合があります。</p></article>
+        </div>
+        <div class="flow-cta"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼</button></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="support">
+      <div class="container">
+        <div class="support-layout">
+          <div class="phone-stage" aria-label="期限通知メールのイメージ">
+            <div class="phone"><div class="phone__screen"><b style="display:block;text-align:center;font-size:12px">メール</b><div class="mail-mini">わが家のそなえ便<strong>【期限のお知らせ】交換時期が近い商品があります</strong>対象品一覧と交換候補をご確認ください。</div><div class="mail-mini">配送のお知らせ<strong>商品を発送しました</strong>お届け予定日をご確認ください。</div></div></div>
+            <div class="email-card"><div class="email-card__meta">わが家のそなえ便　期限管理サポート</div><h3>交換時期が近い商品があります</h3><p>最も早い期限の約6か月前に、対象品と交換候補をまとめてお知らせします。</p><div class="expiry-box"><b>今回の対象</b><br>保存食 8点・飲料水 6本</div><button class="btn btn--outline" type="button">対象品と交換候補を見る</button></div>
+          </div>
+          <div><p class="eyebrow">購入後のサポート</p><h2 class="heading heading-sm">忘れやすい期限は、<br><span class="support-heading-accent">約6か月前にお知らせ。</span></h2><p class="lead">購入後も、備蓄が期限切れにならないよう年1回メールでご案内。買い直すものを探す手間も減らします。</p><div class="support-points"><div class="support-point"><span class="check">✓</span><div><b>備蓄表で一覧化</b><span>セット内容と期限をまとめ、収納箱の中でも確認できます。</span></div></div><div class="support-point"><span class="check">✓</span><div><b>年1回、期限前に通知</b><span>最も早い期限を基準に、約6か月前を目安にメールでお知らせします。</span></div></div><div class="support-point"><span class="check">✓</span><div><b>交換商品までご案内</b><span>対象品、交換時期、買い替え候補と購入方法までまとめます。</span></div></div></div></div>
+        </div>
+        <div class="support-note">月額料金はかかりません。期限通知はセット購入者向けの無料サポートです。</div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="faq">
+      <div class="container faq-layout">
+        <div><p class="eyebrow">よくあるご質問</p><h2 class="heading heading-sm">FAQ</h2><p class="lead">ご不明な点は、見積もり時にもお気軽にお知らせください。</p></div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q1</span><span>1人暮らしや3人・5人家族でも利用できますか？</span><i>＋</i></button><div class="faq-a"><div><p>はい。表示価格は4人家族の参考例ですが、人数・年齢に合わせて数量と価格を調整します。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q2</span><span>家にある備蓄品を差し引けますか？</span><i>＋</i></button><div class="faq-a"><div><p>一式でのご提案を基本とし、希望者は現在お持ちの品目を確認して差し引きます。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q3</span><span>水やカセットボンベも届きますか？</span><i>＋</i></button><div class="faq-a"><div><p>はい。必要量をすべて配送します。水は用品と別箱・別便になる場合があります。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q4</span><span>送料はいくらですか？</span><i>＋</i></button><div class="faq-a"><div><p>水の重量が大きいため地域別にお見積もりします。全国対応、沖縄・離島は個別相談です。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q5</span><span>収納スペースに収まるか不安です。</span><i>＋</i></button><div class="faq-a"><div><p>見積もり時に住環境を確認し、積み重ねできる硬質ボックスを使った保管方法をご提案します。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q6</span><span>返品や破損時の交換はできますか？</span><i>＋</i></button><div class="faq-a"><div><p>到着後7日以内で、食品・衛生品などの個包装が未開封の場合は返品できます。収納箱は開封可能です。配送時の破損は交換します。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q7</span><span>医薬品もセットに含まれますか？</span><i>＋</i></button><div class="faq-a"><div><p>医薬品は含みません。救急用品と、ご家庭で必要な常備薬を確認するチェックリストをお届けします。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q8</span><span>電話で営業されることはありますか？</span><i>＋</i></button><div class="faq-a"><div><p>電話番号の入力は不要で、営業電話もありません。希望者のみオンライン相談をご利用いただけます。</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container"><p class="eyebrow">無料見積もり</p><h2 class="heading">何を、どれだけ。<br>迷うところから、専門家にお任せください。</h2><p class="lead">家族情報を簡単に入力するだけ。2営業日以内に、あなたの家庭向けの内容と価格をご案内します。</p><div class="final-cta__actions"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼 <span>→</span></button></div><div class="assurances"><span>✓ 入力は約3分</span><span>✓ 電話番号不要</span><span>✓ 営業電話なし</span></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-main"><div><a class="brand" href="#top"><img src="assets/brand.png" alt=""><span>わが家のそなえ便</span></a><div class="footer__company">運営：株式会社そなえ暮らし<br>家庭の在宅避難用備蓄を、もっと分かりやすく。</div></div><nav><a href="#service">サービス</a><a href="#experts">専門家</a><a href="#contents">セット内容</a><a href="#plans">料金プラン</a><a href="#flow">ご利用の流れ</a><a href="#faq">よくある質問</a></nav></div><div class="footer-bottom"><span>プライバシーポリシー　特定商取引法に基づく表記</span><span>© Sonae Kurashi Inc.</span></div></div></footer>
+
+  <div class="overlay" id="items-main" role="dialog" aria-modal="true" aria-labelledby="items-main-title">
+    <div class="modal"><div class="modal__head"><h2 id="items-main-title">標準プランの全品目</h2><button class="close js-close" type="button" aria-label="閉じる">×</button></div><div class="modal__body"><p class="lead" style="margin-top:0">4人家族・7日分の代表例です。人数・年齢・食事制限に合わせて数量や内容を調整します。</p><div class="item-grid">
+      <section class="item-group"><h3>食料・調理</h3><ul><li>アルファ化米・レトルトごはん</li><li>おかず缶・レトルト惣菜</li><li>パン・シリアル・栄養補助食品</li><li>即席みそ汁・スープ</li><li>カセットコンロ・ボンベ</li><li>紙皿・カトラリー・ラップ</li></ul></section>
+      <section class="item-group"><h3>水・飲料</h3><ul><li>長期保存水 2L中心</li><li>持ち出し用500ml</li><li>給水袋</li><li>折りたたみ給水タンク</li></ul></section>
+      <section class="item-group"><h3>トイレ・衛生</h3><ul><li>携帯トイレ・防臭袋</li><li>トイレットペーパー</li><li>ウェットティッシュ</li><li>ドライシャンプー・歯みがき用品</li><li>マスク・使い捨て手袋</li></ul></section>
+      <section class="item-group"><h3>照明・情報</h3><ul><li>LEDランタン</li><li>ヘッドライト</li><li>乾電池・USB・手回しラジオ</li><li>モバイルバッテリー</li><li>予備電池</li></ul></section>
+      <section class="item-group"><h3>救急・安全</h3><ul><li>救急セット</li><li>ホイッスル</li><li>軍手・作業手袋</li><li>常備薬チェックリスト</li><li>防災情報カード</li></ul></section>
+      <section class="item-group"><h3>保温・収納</h3><ul><li>保温シート 4人分</li><li>簡易マット 4人分</li><li>積み重ね収納ボックス</li><li>カテゴリーラベル</li><li>内容一覧・期限表</li></ul></section>
+    </div></div></div>
+  </div>
+
+  <div class="overlay" id="items-addon" role="dialog" aria-modal="true" aria-labelledby="items-addon-title">
+    <div class="modal"><div class="modal__head"><h2 id="items-addon-title">追加パックの品目例</h2><button class="close js-close" type="button" aria-label="閉じる">×</button></div><div class="modal__body"><div class="item-grid">
+      <section class="item-group"><h3>子ども安心パック</h3><ul><li>子ども向け食品への一部置き換え</li><li>食べ慣れたおやつ</li><li>子ども用マスク・手袋</li><li>迷子・安心カード</li><li>簡易あそび用品</li></ul></section>
+      <section class="item-group"><h3>女性衛生パック</h3><ul><li>生理用品</li><li>サニタリー袋・目隠し袋</li><li>デリケートゾーン用清拭用品</li><li>使い捨て下着</li><li>防臭袋</li></ul></section>
+      <section class="item-group"><h3>犬・猫基本パック</h3><ul><li>普段の銘柄に合わせたフード</li><li>飲料水・折りたたみ食器</li><li>排泄用品・防臭袋</li><li>ペット情報カード</li><li>リード・迷子札チェック</li></ul></section>
+      <section class="item-group"><h3>個別対応</h3><ul><li>乳幼児用品</li><li>高齢者用品</li><li>アレルギー・食事制限</li><li>その他のペット</li><li>キャリー・ケージの個別提案</li></ul></section>
+    </div></div></div>
+  </div>
+
+  <div class="overlay" id="estimate-form" role="dialog" aria-modal="true" aria-labelledby="form-title">
+    <div class="modal form-modal">
+      <div class="modal__head"><div><div class="eyebrow" style="margin:0">無料見積もり</div><h2 id="form-title">ご家庭に合う備蓄をご提案します</h2></div><button class="close js-close" type="button" aria-label="閉じる">×</button></div>
+      <div class="form-progress" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
+      <form class="modal__body" id="estimate">
+        <section class="form-view active" data-step="0"><h3>1. 家族情報</h3>
+          <div class="field"><label for="family">家族構成<span class="required">必須</span></label><select id="family" name="家族構成" required><option value="">選択してください</option><option>1人</option><option>大人2人</option><option>大人2人＋子ども1人</option><option>大人2人＋子ども2人</option><option>5人以上</option><option>その他</option></select></div>
+          <div class="field"><label for="home">住まい<span class="required">必須</span></label><select id="home" name="住まい" required><option value="">選択してください</option><option>マンション・集合住宅</option><option>戸建て</option><option>その他</option></select></div>
+          <div class="field"><label>希望プラン<span class="required">必須</span></label><div class="choice-grid"><div class="choice"><input id="p-basic" type="radio" name="希望プラン" value="基本プラン" required><label for="p-basic">基本プラン<br>3日分</label></div><div class="choice"><input id="p-standard" type="radio" name="希望プラン" value="標準プラン"><label for="p-standard">標準プラン<br>7日分</label></div><div class="choice"><input id="p-plus" type="radio" name="希望プラン" value="安心プラン"><label for="p-plus">安心プラン<br>7日＋電源</label></div></div></div>
+          <p class="form-error">必須項目を入力してください。</p><div class="form-actions" style="justify-content:flex-end"><button class="btn btn--primary js-next" type="button">連絡先へ進む →</button></div>
+        </section>
+        <section class="form-view" data-step="1"><h3>2. 連絡先</h3>
+          <div class="field"><label for="name">お名前<span class="required">必須</span></label><input id="name" name="お名前" autocomplete="name" required placeholder="例）山田 花子"></div>
+          <div class="field"><label for="email">メールアドレス<span class="required">必須</span></label><input id="email" type="email" name="メールアドレス" autocomplete="email" required placeholder="example@email.com"></div>
+          <div class="field"><label for="region">配送地域<span class="required">必須</span></label><select id="region" name="配送地域" required><option value="">都道府県を選択</option><option>北海道・東北</option><option>関東</option><option>中部</option><option>近畿</option><option>中国・四国</option><option>九州</option><option>沖縄・離島</option></select></div>
+          <div class="field"><label for="note">追加したい備え・相談事項<span style="font-size:11px;color:var(--muted);margin-left:6px">任意</span></label><textarea id="note" name="相談事項" placeholder="例）アレルギー対応、ペット用、すでに持っている備蓄品など"></textarea></div>
+          <div class="field"><div class="choice"><input id="consult" type="checkbox" name="オンライン相談" value="希望する"><label for="consult">希望者のみ：オンライン相談を希望する</label></div></div>
+          <p class="form-error">お名前・メールアドレス・配送地域を確認してください。</p><div class="form-actions"><button class="btn btn--outline js-prev" type="button">← 戻る</button><button class="btn btn--primary js-next" type="button">入力内容を確認 →</button></div>
+        </section>
+        <section class="form-view" data-step="2"><h3>入力内容の確認</h3><dl class="confirm-list" id="confirm-list"></dl><p style="font-size:12px;color:var(--muted)">このサイトはポートフォリオ用のデモです。送信内容は保存・送信されません。</p><div class="form-actions"><button class="btn btn--outline js-prev" type="button">← 修正する</button><button class="btn btn--primary" type="submit">見積もりを依頼する</button></div></section>
+        <section class="form-view" data-step="3"><div class="complete"><div class="complete__icon">✓</div><h3>見積もり依頼を受け付けました</h3><p>デモ送信が完了しました。実際のサービスでは、2営業日以内にメールで見積もりをご案内します。</p><button class="btn btn--navy js-finish" type="button">LPに戻る</button></div></section>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var body=document.body;
+      var menuButton=document.querySelector(".menu-btn");
+      var nav=document.querySelector(".nav");
+      menuButton.addEventListener("click",function(){var open=nav.classList.toggle("open");menuButton.setAttribute("aria-expanded",String(open));});
+      nav.querySelectorAll("a").forEach(function(link){link.addEventListener("click",function(){nav.classList.remove("open");menuButton.setAttribute("aria-expanded","false");});});
+
+      function openOverlay(id){
+        var el=document.getElementById(id);if(!el)return;
+        el.classList.add("open");body.classList.add("lock");
+        var focus=el.querySelector("button,input,select");if(focus)setTimeout(function(){focus.focus();},20);
+      }
+      function closeOverlay(el){el.classList.remove("open");if(!document.querySelector(".overlay.open"))body.classList.remove("lock");}
+      document.querySelectorAll(".js-open-items").forEach(function(btn){btn.addEventListener("click",function(){openOverlay(btn.getAttribute("data-modal"));});});
+      document.querySelectorAll(".overlay").forEach(function(overlay){
+        overlay.addEventListener("click",function(e){if(e.target===overlay)closeOverlay(overlay);});
+        overlay.querySelectorAll(".js-close").forEach(function(btn){btn.addEventListener("click",function(){closeOverlay(overlay);});});
+      });
+      document.addEventListener("keydown",function(e){if(e.key==="Escape"){var open=document.querySelector(".overlay.open");if(open)closeOverlay(open);}});
+
+      document.querySelectorAll(".faq-q").forEach(function(button){
+        button.addEventListener("click",function(){var item=button.parentElement;var open=item.classList.toggle("open");button.setAttribute("aria-expanded",String(open));});
+      });
+      document.querySelectorAll(".plan").forEach(function(card){
+        card.addEventListener("click",function(e){if(e.target.closest("button"))return;document.querySelectorAll(".plan").forEach(function(x){x.classList.remove("is-active");});card.classList.add("is-active");});
+        card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();card.click();}});
+      });
+
+      var form=document.getElementById("estimate");
+      var views=Array.from(form.querySelectorAll(".form-view"));
+      var progress=Array.from(document.querySelectorAll(".form-progress span"));
+      var current=0;
+      function showStep(index){current=index;views.forEach(function(v,i){v.classList.toggle("active",i===index);});progress.forEach(function(p,i){p.classList.toggle("active",i<=index);});document.querySelector("#estimate-form .modal").scrollTop=0;}
+      function validStep(index){
+        var fields=Array.from(views[index].querySelectorAll("[required]"));
+        var ok=true;
+        fields.forEach(function(field){if(!field.checkValidity()){ok=false;field.setAttribute("aria-invalid","true");}else{field.removeAttribute("aria-invalid");}});
+        if(index===0&&!form.querySelector('input[name="希望プラン"]:checked'))ok=false;
+        views[index].querySelector(".form-error").classList.toggle("show",!ok);
+        if(!ok){var first=fields.find(function(x){return !x.checkValidity();});if(first)first.focus();}
+        return ok;
+      }
+      function buildConfirm(){
+        var data=new FormData(form);var rows="";
+        ["家族構成","住まい","希望プラン","お名前","メールアドレス","配送地域","相談事項","オンライン相談"].forEach(function(key){
+          var value=data.get(key)||"なし";rows+='<div class="confirm-row"><dt>'+key+'</dt><dd>'+String(value).replace(/</g,"&lt;")+'</dd></div>';
+        });
+        document.getElementById("confirm-list").innerHTML=rows;
+      }
+      form.querySelectorAll(".js-next").forEach(function(btn){btn.addEventListener("click",function(){if(!validStep(current))return;if(current===1)buildConfirm();showStep(current+1);});});
+      form.querySelectorAll(".js-prev").forEach(function(btn){btn.addEventListener("click",function(){showStep(Math.max(0,current-1));});});
+      form.addEventListener("submit",function(e){e.preventDefault();showStep(3);});
+      form.querySelector(".js-finish").addEventListener("click",function(){closeOverlay(document.getElementById("estimate-form"));setTimeout(function(){form.reset();showStep(0);},250);});
+
+      document.querySelectorAll(".js-open-form").forEach(function(btn){
+        btn.addEventListener("click",function(){
+          var plan=btn.getAttribute("data-plan");
+          if(plan){var input=Array.from(form.querySelectorAll('input[name="希望プラン"]')).find(function(x){return x.value===plan;});if(input)input.checked=true;}
+          showStep(0);openOverlay("estimate-form");
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
