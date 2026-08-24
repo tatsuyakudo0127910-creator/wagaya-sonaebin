@@ -73,20 +73,26 @@
     .trustbar__item:last-child{border-right:0}
 
     .split-heading{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:end}
+    .comparison-heading{max-width:760px}
     .comparison{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .quantity-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative}
     .quantity-card--accent{border-color:#e9bba5;box-shadow:0 14px 38px rgba(185,79,31,.09)}
-    .quantity-card__top{display:flex;align-items:center;justify-content:space-between}
-    .quantity-card__day{font-size:28px;font-weight:900}
-    .quantity-card__label{font-size:12px;color:var(--muted)}
+    .quantity-card__day{font-size:24px;line-height:1.4;font-weight:900}
+    .quantity-card__reason{margin:7px 0 0;color:var(--muted);font-size:14px;font-weight:700}
     .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
     .metric{background:var(--cream);border-radius:10px;padding:18px 14px;text-align:center}
-    .metric b{display:block;font-size:23px;color:var(--navy)}
-    .metric small{color:var(--muted)}
+    .metric b{display:block;margin:2px 0;font-size:34px;line-height:1.2;color:var(--navy);letter-spacing:-.02em}
+    .metric small{display:block;color:var(--muted)}
     .source-note{margin:18px 0 0;font-size:12px;color:#6d7781}
-    .support-callout{margin-top:38px;background:var(--trust);border-radius:14px;padding:20px 26px;display:flex;align-items:flex-start;gap:12px;font-weight:700}
-    .bridge{margin-top:38px;text-align:center;font-size:22px;font-weight:900;color:var(--navy)}
-    .bridge::after{content:"";display:block;width:1px;height:42px;background:#aebac3;margin:18px auto -96px}
+    .support-callout{margin-top:38px;background:var(--trust);border-radius:14px;padding:22px 26px;display:flex;align-items:flex-start;gap:14px}
+    .support-callout .check{margin-top:5px}
+    .support-callout__title{display:block;color:var(--navy);font-size:22px;line-height:1.4}
+    .support-callout__body{display:block;margin-top:4px;color:#46515d;font-size:14px}
+    .bridge{margin-top:38px;text-align:center;color:var(--navy)}
+    .bridge p{margin:0;font-size:22px;font-weight:900}
+    .bridge__arrow{position:relative;display:block;width:22px;height:50px;margin:14px auto -96px}
+    .bridge__arrow::before{content:"";position:absolute;top:0;left:50%;width:1px;height:42px;background:#8f9da8}
+    .bridge__arrow::after{content:"";position:absolute;left:50%;bottom:2px;width:9px;height:9px;border-right:2px solid #8f9da8;border-bottom:2px solid #8f9da8;transform:translateX(-50%) rotate(45deg)}
 
     .values__heading{display:flex;align-items:end;justify-content:space-between;gap:30px}
     .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -277,9 +283,10 @@
       .heading{font-size:30px}.heading-sm{font-size:28px}.lead{font-size:14px;margin-top:16px}
       .comparison,.values-grid,.experts-main,.set-layout,.plans-grid,.addons-grid,.support-layout{grid-template-columns:1fr}
       .comparison{gap:16px}.quantity-card{padding:22px 18px}
-      .metric-grid{gap:7px}.metric{padding:13px 5px}.metric b{font-size:19px}.metric small{font-size:10px}
+      .metric-grid{gap:7px}.metric{padding:14px 5px}.metric b{font-size:28px}.metric small{font-size:10px}
       .support-callout{padding:17px 18px;font-size:13px}
-      .bridge{font-size:18px}.bridge::after{margin-bottom:-72px}
+      .support-callout__title{font-size:19px}.support-callout__body{font-size:13px}
+      .bridge p{font-size:18px}.bridge__arrow{margin-bottom:-72px}
       .values__heading,.addons-header{display:block}
       .value-card{min-height:0}.timeline-labels{gap:8px}.timeline-labels i{width:28px}
       .expert-bridge{grid-template-columns:1fr;gap:14px;padding:20px}.expert-bridge strong{font-size:20px}
@@ -377,23 +384,22 @@
 
     <section class="section section--cream" id="service">
       <div class="container">
-        <div class="split-heading">
-          <div><p class="eyebrow">公的な備蓄目安を基に比較</p><h2 class="heading heading-sm">備蓄は「最低3日、できれば7日」。<br>必要量は、家族の人数で大きく変わります。</h2></div>
-          <p class="lead">大人2人・小学生2人の4人家族を例に、在宅避難で必要な食事・水・トイレの量を比べました。</p>
-        </div>
+        <div class="comparison-heading"><p class="eyebrow">公的な備蓄目安を基に比較</p><h2 class="heading heading-sm">最低3日、できれば7日。<br>家族分は、これだけ。</h2></div>
         <div class="comparison">
           <article class="quantity-card">
-            <div class="quantity-card__top"><div><span class="quantity-card__label">まず備えるなら</span><div class="quantity-card__day">4人家族・3日分</div></div><span class="tag">基本の備え</span></div>
+            <div class="quantity-card__day">4人家族・3日分</div>
+            <p class="quantity-card__reason">発災直後をしのぐ、最低限の備え</p>
             <div class="metric-grid"><div class="metric"><small>飲料水</small><b>36L</b><small>2L×18本相当</small></div><div class="metric"><small>食事</small><b>36食</b><small>1人1日3食</small></div><div class="metric"><small>トイレ</small><b>60回</b><small>1人1日5回</small></div></div>
           </article>
           <article class="quantity-card quantity-card--accent">
-            <div class="quantity-card__top"><div><span class="quantity-card__label">より安心を求めるなら</span><div class="quantity-card__day">4人家族・7日分</div></div><span class="tag">推奨の備え</span></div>
+            <div class="quantity-card__day">4人家族・7日分</div>
+            <p class="quantity-card__reason">物流・ライフラインの停滞に備える、推奨量</p>
             <div class="metric-grid"><div class="metric"><small>飲料水</small><b>84L</b><small>2L×42本相当</small></div><div class="metric"><small>食事</small><b>84食</b><small>1人1日3食</small></div><div class="metric"><small>トイレ</small><b>140回</b><small>1人1日5回</small></div></div>
           </article>
         </div>
-        <p class="source-note">※水は1人1日3L、食事は1日3食、携帯トイレは1日5回を基準にした目安です。年齢、体格、住環境、ペットの有無などにより必要量は変わります。</p>
-        <div class="support-callout"><span class="check">✓</span><span>このほかにも、照明・ラジオ・衛生用品・保温用品などが必要です。家族構成や住まい、ペットの有無まで確認して、必要な量をご提案します。</span></div>
-        <p class="bridge">家庭でひとつずつそろえるのは、大変だから。</p>
+        <p class="source-note">※1人1日あたり、水3L・3食・携帯トイレ5回で算出。</p>
+        <div class="support-callout"><span class="check">✓</span><div><strong class="support-callout__title">このほかにも</strong><span class="support-callout__body">照明・ラジオ・衛生用品・保温用品などが必要です。家族構成や住まい、ペットの有無まで確認して、必要な量をご提案します。</span></div></div>
+        <div class="bridge"><p>ひとつずつそろえるのは、大変だから。</p><span class="bridge__arrow" aria-hidden="true"></span></div>
       </div>
     </section>
 
