@@ -28,6 +28,7 @@
     .section--white{background:var(--white)}
     .section--cream{background:var(--cream)}
     .section--blue{background:linear-gradient(135deg,#edf5f7 0%,#f8fbfb 70%)}
+    .section--neutral{background:#f4f5f3}
     .eyebrow{margin:0 0 14px;color:var(--orange);font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
     .heading{margin:0;font-size:clamp(30px,3.1vw,48px);line-height:1.35;letter-spacing:.01em}
     .heading-sm{font-size:clamp(27px,2.6vw,40px)}
@@ -106,11 +107,8 @@
     .iconbox{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--blue);flex:0 0 auto}
     .iconbox img{width:32px;height:32px}
     .value-card p{color:var(--muted);margin:16px 0 0;font-size:14px}
-    .timeline-labels{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:38px;color:#6a7580;font-size:13px;font-weight:800}
-    .timeline-labels i{width:60px;height:1px;background:#aeb8c0}
-    .expert-bridge{margin-top:28px;border:1px solid var(--navy);border-radius:16px;background:#edf4f6;padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-    .expert-bridge span{display:block;color:var(--orange);font-size:12px;font-weight:900;margin-bottom:4px}
-    .expert-bridge strong{display:block;font-size:24px;line-height:1.45}
+    .expert-bridge{margin-top:30px;border:1px solid #d4dade;border-radius:16px;background:#fff;padding:22px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+    .expert-bridge strong{display:block;color:var(--navy);font-size:22px;line-height:1.45}
     .expert-bridge p{margin:0;color:var(--muted);font-size:14px}
 
     .experts-heading{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}
@@ -291,7 +289,7 @@
       .support-callout__title{font-size:19px}.support-callout__body{font-size:13px}
       .bridge p{font-size:18px}.bridge__arrow{margin-bottom:-46px}
       .values__heading,.addons-header{display:block}
-      .value-card{min-height:0}.timeline-labels{gap:8px}.timeline-labels i{width:28px}
+      .value-card{min-height:0}
       .expert-bridge{grid-template-columns:1fr;gap:14px;padding:20px}.expert-bridge strong{font-size:20px}
       .experts-photo img{height:auto}.profile{padding:24px 20px}.profile h3{font-size:27px}
       .member-grid{grid-template-columns:1fr}
@@ -406,16 +404,15 @@
       </div>
     </section>
 
-    <section class="section section--blue">
+    <section class="section section--neutral">
       <div class="container">
-        <div class="values__heading"><div><p class="eyebrow">わが家のそなえ便ができること</p><h2 class="heading heading-sm">備蓄の準備も、期限管理も。ひとつのサービスで。</h2></div></div>
+        <div class="values__heading"><div><p class="eyebrow">わが家のそなえ便ができること</p><h2 class="heading heading-sm">選ぶ、届ける、知らせる。</h2></div></div>
         <div class="values-grid">
           <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入前</span><h3>専門家が選ぶ</h3></div><span class="iconbox"><img src="assets/value-expert.png" alt=""></span></div><p>家族構成や住環境を確認し、防災士と管理栄養士が必要な品目と数量を整えます。</p></article>
           <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">お届け時</span><h3>分類して届ける</h3></div><span class="iconbox"><img src="assets/value-delivery.png" alt=""></span></div><p>食品・衛生・照明などを分けて収納。内容一覧と期限表を付け、届いた日から管理しやすくします。</p></article>
           <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入後</span><h3>期限前に知らせる</h3></div><span class="iconbox"><img src="assets/value-notice.png" alt=""></span></div><p>最も早い期限の約6か月前に年1回メールで通知。対象品と交換候補をまとめてご案内します。</p></article>
         </div>
-        <div class="timeline-labels"><span>選ぶ</span><i></i><span>届ける</span><i></i><span>知らせる</span></div>
-        <div class="expert-bridge"><div><span>この仕組みを支えるのは</span><strong>防災士2名＋管理栄養士の専門チーム</strong></div><p>標準プランは3名で監修。個別見積もりは、代表防災士と必要分野の専門家が内容を確認します。</p></div>
+        <div class="expert-bridge"><strong>この仕組みを支える、備蓄の専門家。</strong><p>家族ごとの違いまで見ながら、内容を整えます。</p></div>
       </div>
     </section>
 
