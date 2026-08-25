@@ -239,10 +239,13 @@
     .faq-layout{display:grid;grid-template-columns:310px 1fr;gap:60px;align-items:start}
     .faq-list{border-top:1px solid #bcc6ce}
     .faq-item{border-bottom:1px solid #c9d1d7}
-    .faq-q{width:100%;display:flex;align-items:center;gap:18px;padding:22px 8px;border:0;background:transparent;text-align:left;color:var(--ink);font-weight:800}
+    .faq-q{width:100%;display:flex;align-items:center;gap:18px;padding:22px 8px;border:0;background:transparent;text-align:left;color:var(--ink);font-weight:800;-webkit-tap-highlight-color:transparent;transition:color .2s ease,background-color .2s ease}
+    .faq-q:focus:not(:focus-visible){outline:none}
+    .faq-q:focus-visible{outline:2px solid var(--orange);outline-offset:-2px;border-radius:8px}
     .faq-q span:first-child{color:var(--orange);font-size:13px}
-    .faq-q i{font-style:normal;margin-left:auto;font-size:21px;transition:.2s}
-    .faq-item.open .faq-q i{transform:rotate(45deg)}
+    .faq-q i{width:30px;height:30px;border:1px solid #d5dce1;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;margin-left:auto;color:var(--navy);font-style:normal;font-size:19px;line-height:1;transition:.2s}
+    .faq-item.open .faq-q{color:var(--navy)}
+    .faq-item.open .faq-q i{transform:rotate(45deg);border-color:#efc2ad;background:var(--orange-soft);color:var(--orange-dark)}
     .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
     .faq-a>div{overflow:hidden}
     .faq-a p{margin:0;padding:0 46px 22px;color:var(--muted);font-size:14px}
@@ -585,16 +588,16 @@
 
     <section class="section section--cream" id="faq">
       <div class="container faq-layout">
-        <div><p class="eyebrow">よくあるご質問</p><h2 class="heading heading-sm">FAQ</h2><p class="lead">ご不明な点は、見積もり時にもお気軽にお知らせください。</p></div>
+        <div><p class="eyebrow">FAQ</p><h2 class="heading heading-sm">よくあるご質問</h2><p class="lead">気になる点は、見積もり時にもご相談いただけます。</p></div>
         <div class="faq-list">
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q1</span><span>1人暮らしや3人・5人家族でも利用できますか？</span><i>＋</i></button><div class="faq-a"><div><p>はい。表示価格は4人家族の参考例ですが、人数・年齢に合わせて数量と価格を調整します。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q2</span><span>家にある備蓄品を差し引けますか？</span><i>＋</i></button><div class="faq-a"><div><p>一式でのご提案を基本とし、希望者は現在お持ちの品目を確認して差し引きます。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q3</span><span>水やカセットボンベも届きますか？</span><i>＋</i></button><div class="faq-a"><div><p>はい。必要量をすべて配送します。水は用品と別箱・別便になる場合があります。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q4</span><span>送料はいくらですか？</span><i>＋</i></button><div class="faq-a"><div><p>水の重量が大きいため地域別にお見積もりします。全国対応、沖縄・離島は個別相談です。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q5</span><span>収納スペースに収まるか不安です。</span><i>＋</i></button><div class="faq-a"><div><p>見積もり時に住環境を確認し、積み重ねできる硬質ボックスを使った保管方法をご提案します。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q6</span><span>返品や破損時の交換はできますか？</span><i>＋</i></button><div class="faq-a"><div><p>到着後7日以内で、食品・衛生品などの個包装が未開封の場合は返品できます。収納箱は開封可能です。配送時の破損は交換します。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q7</span><span>医薬品もセットに含まれますか？</span><i>＋</i></button><div class="faq-a"><div><p>医薬品は含みません。救急用品と、ご家庭で必要な常備薬を確認するチェックリストをお届けします。</p></div></div></div>
-          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Q8</span><span>電話で営業されることはありますか？</span><i>＋</i></button><div class="faq-a"><div><p>電話番号の入力は不要で、営業電話もありません。希望者のみオンライン相談をご利用いただけます。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-1" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>Q1</span><span>1人暮らしや3人・5人家族でも利用できますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" aria-hidden="true"><div><p>はい。人数・年齢に合わせて数量と価格を調整します。表示価格は4人家族の参考例です。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-2" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Q2</span><span>家にある備蓄品を差し引けますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" aria-hidden="true"><div><p>基本は一式でご提案しますが、お持ちの品目を確認して差し引くこともできます。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-3" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>Q3</span><span>水やカセットボンベも届きますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" aria-hidden="true"><div><p>はい。必要量をすべて配送します。水は用品と別箱・別便になる場合があります。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-4" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Q4</span><span>送料はいくらですか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" aria-hidden="true"><div><p>水の重量を含め、地域別にお見積もりします。全国対応で、沖縄・離島は個別にご案内します。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-5" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Q5</span><span>収納スペースに収まるか不安です。</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" aria-hidden="true"><div><p>見積もり時に収納スペースを確認し、積み重ねできる硬質ボックスをご提案します。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-6" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span>Q6</span><span>返品や破損時の交換はできますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" aria-hidden="true"><div><p>到着後7日以内かつ個包装が未開封なら返品できます。配送時の破損は交換します（収納箱は開封可能です）。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-7" type="button" aria-expanded="false" aria-controls="faq-answer-7"><span>Q7</span><span>医薬品もセットに含まれますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-7" role="region" aria-labelledby="faq-question-7" aria-hidden="true"><div><p>医薬品は含みません。救急用品と、必要な常備薬を確認するチェックリストをお届けします。</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" id="faq-question-8" type="button" aria-expanded="false" aria-controls="faq-answer-8"><span>Q8</span><span>電話で営業されることはありますか？</span><i aria-hidden="true">＋</i></button><div class="faq-a" id="faq-answer-8" role="region" aria-labelledby="faq-question-8" aria-hidden="true"><div><p>電話番号の入力は不要で、営業電話もありません。相談は希望者のみオンラインで承ります。</p></div></div></div>
         </div>
       </div>
     </section>
@@ -685,7 +688,7 @@
       });
 
       document.querySelectorAll(".faq-q").forEach(function(button){
-        button.addEventListener("click",function(){var item=button.parentElement;var open=item.classList.toggle("open");button.setAttribute("aria-expanded",String(open));});
+        button.addEventListener("click",function(){var item=button.parentElement;var open=item.classList.toggle("open");button.setAttribute("aria-expanded",String(open));item.querySelector(".faq-a").setAttribute("aria-hidden",String(!open));});
       });
       var planCards=Array.from(document.querySelectorAll(".plan"));
       function selectPlan(card){planCards.forEach(function(x){var active=x===card;x.classList.toggle("is-active",active);x.setAttribute("aria-current",String(active));});}
