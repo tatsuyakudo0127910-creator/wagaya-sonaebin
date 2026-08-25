@@ -115,8 +115,13 @@
     .expert-bridge__line--end{justify-self:end;margin-top:3px;font-size:18px}
     .expert-bridge p{margin:0;color:var(--muted);font-size:14px}
 
-    .experts-heading{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}
-    .experts-heading .lead{margin:0}
+    .experts-heading{max-width:760px;margin:0 auto;text-align:center}
+    .experts-heading__ornament{display:flex;align-items:center;justify-content:center;gap:13px;margin-bottom:14px}
+    .experts-heading__ornament::before,.experts-heading__ornament::after{content:"";width:38px;height:1px;background:#efc2ad}
+    .experts-heading__symbol{width:50px;height:50px;border:1px solid #efc2ad;border-radius:50%;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange)}
+    .experts-heading__symbol svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .experts-heading .eyebrow{margin-bottom:10px}
+    .experts-heading .lead{max-width:590px;margin:17px auto 0}
     .experts-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:stretch}
     .experts-photo{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
     .experts-photo img{width:100%;height:360px;object-fit:cover}
@@ -285,7 +290,7 @@
       .hero__visual{margin-inline:-2px}
       .trustbar{grid-template-columns:1fr;margin-top:28px;padding:8px 18px}
       .trustbar__item{border-right:0;border-bottom:1px solid #ddd9d2;padding:13px 0}.trustbar__item:last-child{border:0}
-      .split-heading,.experts-heading,.flow-heading,.faq-layout{grid-template-columns:1fr;gap:18px}
+      .split-heading,.flow-heading,.faq-layout{grid-template-columns:1fr;gap:18px}
       .heading{font-size:30px}.heading-sm{font-size:28px}.lead{font-size:14px;margin-top:16px}
       .comparison,.values-grid,.experts-main,.set-layout,.plans-grid,.addons-grid,.support-layout{grid-template-columns:1fr}
       .comparison{gap:16px}.quantity-card{padding:22px 18px}
@@ -425,7 +430,9 @@
     <section class="section section--white" id="experts">
       <div class="container">
         <div class="experts-heading">
-          <div><p class="eyebrow">専門家チーム</p><h2 class="heading heading-sm">私たちが監修します。</h2></div>
+          <div class="experts-heading__ornament" aria-hidden="true"><span class="experts-heading__symbol"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"></circle><circle cx="7.5" cy="12" r="3"></circle><circle cx="24.5" cy="12" r="3"></circle><path d="M9.5 26c0-5 2.8-9 6.5-9s6.5 4 6.5 9"></path><path d="M2.5 25c0-4.2 2.1-7.5 5-7.5 1.4 0 2.6.7 3.5 1.8"></path><path d="M29.5 25c0-4.2-2.1-7.5-5-7.5-1.4 0-2.6.7-3.5 1.8"></path></svg></span></div>
+          <p class="eyebrow">専門家チーム</p>
+          <h2 class="heading heading-sm">私たちが監修します。</h2>
           <p class="lead">防災・備蓄・栄養、それぞれの視点で確認します。</p>
         </div>
         <div class="experts-main">
