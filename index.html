@@ -137,11 +137,14 @@
     .member{background:#fff;border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:14px;padding:19px 22px;display:flex;align-items:center;justify-content:space-between}
     .member b{display:block}.member span{font-size:12px;color:var(--muted)}
 
-    .set-layout{display:grid;grid-template-columns:1.45fr .95fr;gap:36px;margin-top:40px;align-items:center}
+    .set-heading{font-size:clamp(27px,2.2vw,34px)}
+    .set-heading__line{display:block;white-space:nowrap}
+    .set-layout{display:grid;grid-template-columns:1.5fr .9fr;gap:32px;margin-top:32px;align-items:center}
+    .set-visual{margin:0}
     .set-visual img{width:100%;border-radius:18px}
     .set-visual figcaption{font-size:12px;color:var(--muted);margin-top:10px}
     .category-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .category{background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start}
+    .category{min-width:0;background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start}
     .category strong{display:block;font-size:15px}.category__copy>span{display:block;font-size:12px;color:var(--muted)}
     .set-actions{margin-top:16px}
     .disclosure-row{width:100%;min-height:58px;border:0;border-radius:11px;background:#e8f0f2;color:var(--ink);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:900;text-align:left;transition:.2s ease}
@@ -304,7 +307,7 @@
       .expert-bridge__line--intro{font-size:14px}.expert-bridge__line--core{font-size:clamp(23px,7vw,27px)}.expert-bridge__line--end{font-size:16px}
       .experts-photo img{height:auto}.profile{padding:24px 20px}.profile h3{font-size:27px}
       .member-grid{grid-template-columns:1fr}
-      .set-layout{gap:22px}.category-list{grid-template-columns:1fr 1fr;gap:8px}.category{padding:13px 11px}
+      .set-layout{gap:22px;margin-top:24px}.category-list{grid-template-columns:1fr 1fr;gap:8px}.category{padding:13px 11px}
       .plans-grid{gap:22px}.plan{padding:24px 20px}.plan--popular{padding:23px 19px}.plan__price{min-height:74px}
       .plan .btn{width:100%;max-width:260px}
       .addons-header .lead{margin-top:16px}.addon img{height:auto}
@@ -345,11 +348,14 @@
       .trustbar__item .check{display:none}
       .trustbar__long{display:none}
       .trustbar__short{display:inline}
+      .set-heading{font-size:clamp(20px,5.8vw,25px);letter-spacing:0}
+      .category{grid-template-columns:1fr;gap:8px;min-height:136px;padding:13px 12px}
+      .category strong{font-size:14px}.category__copy>span{font-size:11px;line-height:1.55}
     }
     @media(max-width:420px){
       .hero h1{font-size:33px}
       .phone-stage{transform:scale(.75);width:133%;margin-bottom:-95px}
-      .category-list{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr}
+      .choice-grid{grid-template-columns:1fr}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
   </style>
@@ -465,11 +471,11 @@
     <section class="section section--cream" id="contents">
       <div class="container">
         <div class="split-heading">
-          <div><p class="eyebrow">セット内容</p><h2 class="heading heading-sm">食料・トイレ・照明まで。<br>必要な備えを、ひとまとめに。</h2></div>
-          <p class="lead">初日は無加熱で食べられるものを、以降は温かい食事も組み合わせます。用品はカテゴリー別に硬質収納ボックスへ、水は別箱で必要量をお届けします。</p>
+          <div><p class="eyebrow">セット内容</p><h2 class="heading heading-sm set-heading"><span class="set-heading__line">食料・トイレ・照明まで。</span><span class="set-heading__line">必要な備えを、ひとまとめに。</span></h2></div>
+          <p class="lead">初日はそのまま食べられるものを、以降は温かい食事も組み合わせます。</p>
         </div>
         <div class="set-layout">
-          <figure class="set-visual"><img src="assets/products.webp" alt="4人家族7日分の備蓄品をカテゴリー別に広げた様子"><figcaption>標準プラン・大人2人＋小学生2人・7日分のイメージ。水は別箱で配送します。</figcaption></figure>
+          <figure class="set-visual"><img src="assets/products-v2.webp" alt="4人家族7日分の備蓄品をカテゴリー別に広げた様子"><figcaption>標準プラン・大人2人＋小学生2人・7日分のイメージ。水は別箱で配送します。</figcaption></figure>
           <div>
             <div class="category-list">
               <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-food-water"></use></svg></span><div class="category__copy"><strong>食料・水</strong><span>84食・保存水84L</span></div></div>
