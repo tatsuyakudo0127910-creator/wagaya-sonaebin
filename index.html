@@ -252,10 +252,17 @@
     .faq-item.open .faq-a{grid-template-rows:1fr}
 
     .final-cta{background:linear-gradient(135deg,#193d5c,#102f49);color:#fff;text-align:center}
+    .final-cta__inner{max-width:900px;position:relative;z-index:1}
     .final-cta .eyebrow{color:#ffc7a9}
-    .final-cta .lead{color:#dce7ef}
-    .final-cta__actions{margin-top:36px}
-    .assurances{display:flex;justify-content:center;gap:34px;margin-top:26px;color:#dce7ef;font-size:13px}
+    .final-cta .heading{font-size:clamp(21px,6.2vw,48px);line-height:1.42}
+    .final-cta__line{display:block}.final-cta__line--focus{white-space:nowrap}
+    .final-cta .lead{max-width:680px;margin:20px auto 0;color:#dce7ef;line-height:1.9}
+    .final-cta__actions{margin-top:32px}
+    .final-cta__actions .btn{min-width:300px}
+    .assurances{max-width:610px;margin:26px auto 0;padding:20px 0 0;border-top:1px solid rgba(220,231,239,.28);display:grid;grid-template-columns:repeat(3,1fr);list-style:none;color:#dce7ef;font-size:13px}
+    .assurances li{display:flex;align-items:center;justify-content:center;gap:8px;padding:0 18px}
+    .assurances li+li{border-left:1px solid rgba(220,231,239,.22)}
+    .assurance-check{width:20px;height:20px;border:1px solid rgba(255,199,169,.72);border-radius:50%;display:grid;place-items:center;flex:0 0 auto;color:#ffc7a9;font-size:11px;font-weight:900}
     .footer{background:var(--cream);color:var(--ink);padding:60px 0 26px;border-top:1px solid #e0ded8}
     .footer-main{display:flex;justify-content:space-between;gap:40px}
     .footer .brand{color:var(--ink)}
@@ -357,7 +364,7 @@
       .phone-stage{height:420px;transform:scale(.86);transform-origin:left top;width:116%;margin-bottom:-46px}
       .support-layout{gap:28px}
       .faq-layout{gap:28px}.faq-q{padding:19px 4px;font-size:14px}.faq-a p{padding-left:34px;padding-right:15px}
-      .assurances{display:grid;gap:8px}.footer-main{display:grid}.footer nav{grid-template-columns:1fr 1fr}.footer-bottom{display:grid;gap:7px}
+      .final-cta__actions .btn{width:100%;min-width:0}.assurances{width:100%;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding-top:16px;font-size:11px}.assurances li{gap:5px;padding:0 5px;line-height:1.45}.footer-main{display:grid}.footer nav{grid-template-columns:1fr 1fr}.footer-bottom{display:grid;gap:7px}
       .modal__head{padding:18px 20px}.modal__head h2{font-size:19px}.modal__body{padding:22px 20px 30px}
       .item-grid{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr 1fr}.form-progress{margin-inline:20px}
       .items-modal__title{gap:9px}.items-modal__lead{margin-bottom:18px;font-size:13px}
@@ -603,7 +610,7 @@
     </section>
 
     <section class="section final-cta">
-      <div class="container"><p class="eyebrow">無料見積もり</p><h2 class="heading">何を、どれだけ。<br>迷うところから、専門家にお任せください。</h2><p class="lead">家族情報を簡単に入力するだけ。2営業日以内に、あなたの家庭向けの内容と価格をご案内します。</p><div class="final-cta__actions"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼 <span>→</span></button></div><div class="assurances"><span>✓ 入力は約3分</span><span>✓ 電話番号不要</span><span>✓ 営業電話なし</span></div></div>
+      <div class="container final-cta__inner"><p class="eyebrow">無料見積もり</p><h2 class="heading"><span class="final-cta__line">家族の備えを、</span><span class="final-cta__line final-cta__line--focus">「いつか」から「今」へ。</span></h2><p class="lead">家族情報の入力後、2営業日以内に、ご家庭に合う備蓄内容と価格をご案内します。</p><div class="final-cta__actions"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼 <span aria-hidden="true">→</span></button></div><ul class="assurances" aria-label="見積もり依頼について"><li><span class="assurance-check" aria-hidden="true">✓</span><span>入力約3分</span></li><li><span class="assurance-check" aria-hidden="true">✓</span><span>電話番号不要</span></li><li><span class="assurance-check" aria-hidden="true">✓</span><span>営業電話なし</span></li></ul></div>
     </section>
   </main>
 
