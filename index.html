@@ -43,6 +43,12 @@
     .text-link{border:0;background:transparent;color:var(--navy);font-weight:800;padding:5px 0;border-bottom:1px solid currentColor}
     .tag{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 12px;background:var(--orange-soft);color:var(--orange-dark);font-size:12px;font-weight:800}
     .check{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;flex:0 0 auto}
+    .icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
+    .line-icon{width:52px;height:52px;border:1px solid #efc2ad;border-radius:50%;display:inline-grid;place-items:center;background:var(--orange-soft);color:var(--navy);flex:0 0 auto}
+    .line-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .line-icon--feature{width:60px;height:60px}.line-icon--feature svg{width:30px;height:30px}
+    .line-icon--heading{width:50px;height:50px}.line-icon--heading svg{width:29px;height:29px}
+    .line-icon--small{width:36px;height:36px;border-radius:10px}.line-icon--small svg{width:20px;height:20px}
     .desktop-only{display:block}.mobile-only{display:none}
 
     .header{height:84px;background:rgba(247,245,240,.96);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(32,40,51,.06);backdrop-filter:blur(12px)}
@@ -104,8 +110,6 @@
     .value-card__top{display:flex;align-items:start;justify-content:space-between;gap:16px}
     .value-card__stage{font-size:12px;color:var(--orange);font-weight:800}
     .value-card h3{font-size:22px;line-height:1.45;margin:5px 0 0}
-    .iconbox{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--blue);flex:0 0 auto}
-    .iconbox img{width:32px;height:32px}
     .value-card p{color:var(--muted);margin:16px 0 0;font-size:14px}
     .expert-bridge{margin-top:30px;border:1px solid #d4dade;border-radius:16px;background:#fff;padding:22px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
     .expert-bridge__statement{display:grid;width:min(100%,380px);color:var(--navy);font-weight:900;line-height:1.2;letter-spacing:.02em}
@@ -118,8 +122,6 @@
     .experts-heading{max-width:760px;margin:0 auto;text-align:center}
     .experts-heading__ornament{display:flex;align-items:center;justify-content:center;gap:13px;margin-bottom:14px}
     .experts-heading__ornament::before,.experts-heading__ornament::after{content:"";width:38px;height:1px;background:#efc2ad}
-    .experts-heading__symbol{width:50px;height:50px;border:1px solid #efc2ad;border-radius:50%;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange)}
-    .experts-heading__symbol svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .experts-heading .eyebrow{margin-bottom:10px}
     .experts-heading .lead{max-width:590px;margin:17px auto 0}
     .experts-main{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;align-items:stretch}
@@ -139,8 +141,8 @@
     .set-visual img{width:100%;border-radius:18px}
     .set-visual figcaption{font-size:12px;color:var(--muted);margin-top:10px}
     .category-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .category{background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px}
-    .category strong{display:block;font-size:15px}.category span{font-size:12px;color:var(--muted)}
+    .category{background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start}
+    .category strong{display:block;font-size:15px}.category__copy>span{display:block;font-size:12px;color:var(--muted)}
     .set-actions{margin-top:16px}
     .disclosure-row{width:100%;min-height:58px;border:0;border-radius:11px;background:#e8f0f2;color:var(--ink);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:900;text-align:left;transition:.2s ease}
     .disclosure-row:hover{background:#dcebed;color:var(--navy);transform:translateY(-1px)}
@@ -182,8 +184,6 @@
     .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-26px;top:33px;color:#aeb7bf;font-size:20px}
     .flow-step__top{display:flex;justify-content:space-between;align-items:center}
     .step-no{background:var(--orange-soft);color:var(--orange-dark);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:900}
-    .flow-icon{width:52px;height:52px;border-radius:50%;background:var(--blue);display:grid;place-items:center}
-    .flow-icon img{width:24px;height:24px}
     .flow-step h3{font-size:20px;margin:15px 0 8px}
     .flow-step p{font-size:13px;color:var(--muted);margin:0}
     .flow-cta{text-align:center;margin-top:36px}
@@ -206,7 +206,7 @@
     .support-points{display:grid;gap:12px;margin:28px 0}
     .support-point{display:flex;gap:14px;align-items:center;background:var(--cream);border-radius:13px;padding:17px 20px}
     .support-point:nth-child(2){background:#edf4f6}
-    .support-point b{display:block;font-size:17px}.support-point span{font-size:13px;color:var(--muted)}
+    .support-point b{display:block;font-size:17px}.support-point__copy span{display:block;font-size:13px;color:var(--muted)}
     .support-note{margin-top:32px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:12px;text-align:center;font-size:13px;color:var(--muted)}
 
     .faq-layout{display:grid;grid-template-columns:310px 1fr;gap:60px;align-items:start}
@@ -355,6 +355,20 @@
   </style>
 </head>
 <body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-checklist" viewBox="0 0 32 32"><rect x="7" y="5" width="18" height="23" rx="2"></rect><path d="M12 5V3h8v2"></path><path d="m11 12 2 2 4-4"></path><path d="M19 13h3M11 20h3M17 20h5"></path></symbol>
+    <symbol id="icon-box" viewBox="0 0 32 32"><path d="m5 10 11-6 11 6-11 6-11-6Z"></path><path d="M5 10v12l11 6 11-6V10M16 16v12"></path><path d="m10.5 7 11 6"></path></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3"></rect><path d="M10 4v6M22 4v6M5 12h22"></path><circle cx="20.5" cy="20.5" r="3.5"></circle><path d="M20.5 18.5v2.2l1.5 1"></path></symbol>
+    <symbol id="icon-team" viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"></circle><circle cx="7.5" cy="12" r="3"></circle><circle cx="24.5" cy="12" r="3"></circle><path d="M9.5 26c0-5 2.8-9 6.5-9s6.5 4 6.5 9"></path><path d="M2.5 25c0-4.2 2.1-7.5 5-7.5 1.4 0 2.6.7 3.5 1.8M29.5 25c0-4.2-2.1-7.5-5-7.5-1.4 0-2.6.7-3.5 1.8"></path></symbol>
+    <symbol id="icon-food-water" viewBox="0 0 32 32"><path d="M8 5h7v4l-2 3v14H6V12l2-3V5Z"></path><path d="M6 17h7M9 9h5"></path><path d="M26 16a4 4 0 0 1-8 0c0-2.8 4-7.5 4-7.5s4 4.7 4 7.5Z"></path></symbol>
+    <symbol id="icon-hygiene" viewBox="0 0 32 32"><path d="M9 11h10l2 4v12H7V15l2-4Z"></path><path d="M12 7h8M16 7v4M7 17h14"></path><path d="M25 5v5M22.5 7.5h5M25 13v2"></path></symbol>
+    <symbol id="icon-flame" viewBox="0 0 32 32"><path d="M16 4c1.5 5 7 7.2 7 14a7 7 0 0 1-14 0c0-4 2.1-7.3 5.4-10.7.1 3.5 1.6 5.3 3.5 6.7"></path><path d="M16 27a4 4 0 0 1-4-4c0-2.2 1.2-4.1 3-5.8.2 2 1.1 3 2.3 3.8 1.1.7 1.7 1.7 1.7 3a3 3 0 0 1-3 3Z"></path></symbol>
+    <symbol id="icon-power" viewBox="0 0 32 32"><path d="M11 22a9 9 0 1 1 10 0l-1.5 2.5h-7L11 22Z"></path><path d="M12.5 27h7M18 9l-5 7h4l-2 6"></path></symbol>
+    <symbol id="icon-radio" viewBox="0 0 32 32"><rect x="4" y="9" width="24" height="17" rx="3"></rect><path d="m8 9 13-5M8 14h10"></path><circle cx="21.5" cy="19.5" r="3.5"></circle><path d="M9 19h5M9 22h3"></path></symbol>
+    <symbol id="icon-storage" viewBox="0 0 32 32"><rect x="5" y="8" width="22" height="19" rx="2"></rect><path d="M5 13h22M12 8V5h8v3"></path><path d="m11 20 3 3 7-7"></path></symbol>
+    <symbol id="icon-mail" viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="3"></rect><path d="m5 9 11 9L27 9"></path></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 32 32"><path d="M25 10a10 10 0 0 0-17-1l-2 3"></path><path d="M5 6v6h6M7 22a10 10 0 0 0 17 1l2-3"></path><path d="M27 26v-6h-6"></path><rect x="12" y="12" width="8" height="8" rx="1"></rect></symbol>
+  </svg>
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="わが家のそなえ便 トップへ"><img src="assets/brand.png" alt=""><span>わが家のそなえ便</span></a>
@@ -419,9 +433,9 @@
       <div class="container">
         <div class="values__heading"><div><p class="eyebrow">わが家のそなえ便ができること</p><h2 class="heading heading-sm">選ぶ、届ける、知らせる。</h2></div></div>
         <div class="values-grid">
-          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入前</span><h3>専門家が選ぶ</h3></div><span class="iconbox"><img src="assets/value-expert.png" alt=""></span></div><p>家族構成や住環境を確認し、防災士と管理栄養士が必要な品目と数量を整えます。</p></article>
-          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">お届け時</span><h3>分類して届ける</h3></div><span class="iconbox"><img src="assets/value-delivery.png" alt=""></span></div><p>食品・衛生・照明などを分けて収納。内容一覧と期限表を付け、届いた日から管理しやすくします。</p></article>
-          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入後</span><h3>期限前に知らせる</h3></div><span class="iconbox"><img src="assets/value-notice.png" alt=""></span></div><p>最も早い期限の約6か月前に年1回メールで通知。対象品と交換候補をまとめてご案内します。</p></article>
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入前</span><h3>専門家が選ぶ</h3></div><span class="line-icon line-icon--feature" aria-hidden="true"><svg><use href="#icon-checklist"></use></svg></span></div><p>家族構成や住環境を確認し、防災士と管理栄養士が必要な品目と数量を整えます。</p></article>
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">お届け時</span><h3>分類して届ける</h3></div><span class="line-icon line-icon--feature" aria-hidden="true"><svg><use href="#icon-box"></use></svg></span></div><p>食品・衛生・照明などを分けて収納。内容一覧と期限表を付け、届いた日から管理しやすくします。</p></article>
+          <article class="value-card"><div class="value-card__top"><div><span class="value-card__stage">購入後</span><h3>期限前に知らせる</h3></div><span class="line-icon line-icon--feature" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span></div><p>最も早い期限の約6か月前に年1回メールで通知。対象品と交換候補をまとめてご案内します。</p></article>
         </div>
         <div class="expert-bridge"><strong class="expert-bridge__statement"><span class="expert-bridge__line expert-bridge__line--intro">この仕組みを、</span><span class="expert-bridge__line expert-bridge__line--core">備蓄の専門家が</span><span class="expert-bridge__line expert-bridge__line--end">支えます。</span></strong><p>家族ごとの違いまで見ながら、内容を整えます。</p></div>
       </div>
@@ -430,7 +444,7 @@
     <section class="section section--white" id="experts">
       <div class="container">
         <div class="experts-heading">
-          <div class="experts-heading__ornament" aria-hidden="true"><span class="experts-heading__symbol"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"></circle><circle cx="7.5" cy="12" r="3"></circle><circle cx="24.5" cy="12" r="3"></circle><path d="M9.5 26c0-5 2.8-9 6.5-9s6.5 4 6.5 9"></path><path d="M2.5 25c0-4.2 2.1-7.5 5-7.5 1.4 0 2.6.7 3.5 1.8"></path><path d="M29.5 25c0-4.2-2.1-7.5-5-7.5-1.4 0-2.6.7-3.5 1.8"></path></svg></span></div>
+          <div class="experts-heading__ornament" aria-hidden="true"><span class="line-icon line-icon--heading"><svg><use href="#icon-team"></use></svg></span></div>
           <p class="eyebrow">専門家チーム</p>
           <h2 class="heading heading-sm">私たちが監修します。</h2>
           <p class="lead">防災・備蓄・栄養、それぞれの視点で確認します。</p>
@@ -457,7 +471,14 @@
         <div class="set-layout">
           <figure class="set-visual"><img src="assets/products.webp" alt="4人家族7日分の備蓄品をカテゴリー別に広げた様子"><figcaption>標準プラン・大人2人＋小学生2人・7日分のイメージ。水は別箱で配送します。</figcaption></figure>
           <div>
-            <div class="category-list"><div class="category"><strong>食料・水</strong><span>84食・保存水84L</span></div><div class="category"><strong>トイレ・衛生</strong><span>携帯トイレ140回分・衛生用品</span></div><div class="category"><strong>調理・保温</strong><span>カセットコンロ・保温用品</span></div><div class="category"><strong>明かり・電源</strong><span>LEDライト・モバイルバッテリー</span></div><div class="category"><strong>情報・安全</strong><span>多機能ラジオ・救急用品</span></div><div class="category"><strong>収納・管理</strong><span>収納箱・内容一覧・期限表</span></div></div>
+            <div class="category-list">
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-food-water"></use></svg></span><div class="category__copy"><strong>食料・水</strong><span>84食・保存水84L</span></div></div>
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-hygiene"></use></svg></span><div class="category__copy"><strong>トイレ・衛生</strong><span>携帯トイレ140回分・衛生用品</span></div></div>
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-flame"></use></svg></span><div class="category__copy"><strong>調理・保温</strong><span>カセットコンロ・保温用品</span></div></div>
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-power"></use></svg></span><div class="category__copy"><strong>明かり・電源</strong><span>LEDライト・モバイルバッテリー</span></div></div>
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-radio"></use></svg></span><div class="category__copy"><strong>情報・安全</strong><span>多機能ラジオ・救急用品</span></div></div>
+              <div class="category"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-storage"></use></svg></span><div class="category__copy"><strong>収納・管理</strong><span>収納箱・内容一覧・期限表</span></div></div>
+            </div>
             <div class="set-actions"><button class="disclosure-row js-open-items" type="button" data-modal="items-main"><span>標準プランの全品目を見る</span><span>→</span></button></div>
           </div>
         </div>
@@ -492,10 +513,10 @@
       <div class="container">
         <div class="flow-heading"><div><p class="eyebrow">ご利用の流れ</p><h2 class="heading heading-sm">簡単な入力から、お届けまで。</h2></div><p class="lead">入力項目は必要最小限。防災士が内容を確認し、2営業日以内に見積もりをご案内します。営業電話はありません。</p></div>
         <div class="flow-grid">
-          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 01</span><span class="flow-icon"><img src="assets/flow-form.png" alt=""></span></div><h3>フォーム入力</h3><p>家族構成・住環境・希望プランを簡単に入力します。</p></article>
-          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 02</span><span class="flow-icon"><img src="assets/flow-expert.png" alt=""></span></div><h3>専門家が確認</h3><p>代表防災士と必要分野の専門家が内容を確認します。</p></article>
-          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 03</span><span class="flow-icon"><img src="assets/flow-mail.png" alt=""></span></div><h3>見積もりを送付</h3><p>2営業日以内にメールでご案内。希望者はオンライン相談も可能です。</p></article>
-          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 04</span><span class="flow-icon"><img src="assets/flow-box.png" alt=""></span></div><h3>ご注文・お届け</h3><p>注文確定後1〜2週間以内。水と用品が別便になる場合があります。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 01</span><span class="line-icon" aria-hidden="true"><svg><use href="#icon-checklist"></use></svg></span></div><h3>フォーム入力</h3><p>家族構成・住環境・希望プランを簡単に入力します。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 02</span><span class="line-icon" aria-hidden="true"><svg><use href="#icon-team"></use></svg></span></div><h3>専門家が確認</h3><p>代表防災士と必要分野の専門家が内容を確認します。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 03</span><span class="line-icon" aria-hidden="true"><svg><use href="#icon-mail"></use></svg></span></div><h3>見積もりを送付</h3><p>2営業日以内にメールでご案内。希望者はオンライン相談も可能です。</p></article>
+          <article class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 04</span><span class="line-icon" aria-hidden="true"><svg><use href="#icon-box"></use></svg></span></div><h3>ご注文・お届け</h3><p>注文確定後1〜2週間以内。水と用品が別便になる場合があります。</p></article>
         </div>
         <div class="flow-cta"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼</button></div>
       </div>
@@ -508,7 +529,7 @@
             <div class="phone"><div class="phone__screen"><b style="display:block;text-align:center;font-size:12px">メール</b><div class="mail-mini">わが家のそなえ便<strong>【期限のお知らせ】交換時期が近い商品があります</strong>対象品一覧と交換候補をご確認ください。</div><div class="mail-mini">配送のお知らせ<strong>商品を発送しました</strong>お届け予定日をご確認ください。</div></div></div>
             <div class="email-card"><div class="email-card__meta">わが家のそなえ便　期限管理サポート</div><h3>交換時期が近い商品があります</h3><p>最も早い期限の約6か月前に、対象品と交換候補をまとめてお知らせします。</p><div class="expiry-box"><b>今回の対象</b><br>保存食 8点・飲料水 6本</div><button class="btn btn--outline" type="button">対象品と交換候補を見る</button></div>
           </div>
-          <div><p class="eyebrow">購入後のサポート</p><h2 class="heading heading-sm">忘れやすい期限は、<br><span class="support-heading-accent">約6か月前にお知らせ。</span></h2><p class="lead">購入後も、備蓄が期限切れにならないよう年1回メールでご案内。買い直すものを探す手間も減らします。</p><div class="support-points"><div class="support-point"><span class="check">✓</span><div><b>備蓄表で一覧化</b><span>セット内容と期限をまとめ、収納箱の中でも確認できます。</span></div></div><div class="support-point"><span class="check">✓</span><div><b>年1回、期限前に通知</b><span>最も早い期限を基準に、約6か月前を目安にメールでお知らせします。</span></div></div><div class="support-point"><span class="check">✓</span><div><b>交換商品までご案内</b><span>対象品、交換時期、買い替え候補と購入方法までまとめます。</span></div></div></div></div>
+          <div><p class="eyebrow">購入後のサポート</p><h2 class="heading heading-sm">忘れやすい期限は、<br><span class="support-heading-accent">約6か月前にお知らせ。</span></h2><p class="lead">購入後も、備蓄が期限切れにならないよう年1回メールでご案内。買い直すものを探す手間も減らします。</p><div class="support-points"><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-checklist"></use></svg></span><div class="support-point__copy"><b>備蓄表で一覧化</b><span>セット内容と期限をまとめ、収納箱の中でも確認できます。</span></div></div><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span><div class="support-point__copy"><b>年1回、期限前に通知</b><span>最も早い期限を基準に、約6か月前を目安にメールでお知らせします。</span></div></div><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-refresh"></use></svg></span><div class="support-point__copy"><b>交換商品までご案内</b><span>対象品、交換時期、買い替え候補と購入方法までまとめます。</span></div></div></div></div>
         </div>
         <div class="support-note">月額料金はかかりません。期限通知はセット購入者向けの無料サポートです。</div>
       </div>
