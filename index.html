@@ -176,17 +176,26 @@
     .plans-note{margin:34px auto 0;max-width:900px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 22px;display:flex;justify-content:center;align-items:center;gap:14px;color:var(--muted);font-size:12px;text-align:left}
     .plans-note__label{flex:0 0 auto;border-radius:999px;padding:4px 10px;background:var(--orange-soft);color:var(--orange-dark);font-weight:900}
 
-    .addons-header{display:flex;justify-content:space-between;gap:40px;align-items:end}
-    .addons-header .lead{max-width:510px;margin:0}
+    .addons-header{max-width:760px}
+    .addons-header .lead{max-width:700px;margin:18px 0 0}
     .addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-    .addon{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 12px 24px;overflow:hidden}
-    .addon img{width:100%;height:220px;object-fit:cover;border-radius:12px}
-    .addon__body{padding:20px 12px 0}
-    .addon__type{font-size:12px;color:var(--orange);font-weight:800}
-    .addon h3{margin:5px 0 10px;font-size:22px}
-    .addon p{font-size:13px;color:var(--muted);margin:0}
-    .addon__price{font-size:21px;font-weight:900;color:var(--navy);margin-top:16px}
-    .addons-footer{margin-top:36px;background:var(--trust);border-radius:14px;padding:25px 30px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+    .addon{background:#fff;border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:18px;padding:11px 11px 24px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 10px 28px rgba(32,40,51,.045)}
+    .addon__media{position:relative}
+    .addon img{width:100%;aspect-ratio:8/5;object-fit:cover;border-radius:12px}
+    .addon__icon{position:absolute;right:15px;bottom:-18px;background:#fff;box-shadow:0 8px 20px rgba(32,40,51,.12)}
+    .addon__body{padding:25px 13px 0;display:flex;flex-direction:column;flex:1}
+    .addon__type{align-self:flex-start;border-radius:999px;padding:4px 10px;background:var(--orange-soft);color:var(--orange-dark);font-size:11px;font-weight:900}
+    .addon h3{margin:9px 0 9px;font-size:22px}
+    .addon p{font-size:13px;color:var(--muted);margin:0;line-height:1.8}
+    .addon__price{margin-top:auto;padding-top:19px;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 13px;color:var(--navy);font-size:13px}
+    .addon__price span{white-space:nowrap}.addon__price strong{font-size:18px}.addon__price small{color:var(--muted);font-size:10px}
+    .addons-footer{margin-top:36px;background:var(--trust);border:1px solid #c6dde1;border-radius:16px;padding:27px 30px;display:flex;justify-content:space-between;align-items:center;gap:28px}
+    .addons-footer__copy{max-width:760px}
+    .addons-footer__lead{display:block;color:var(--orange);font-size:20px;font-weight:900;line-height:1.4;margin-bottom:4px}
+    .addons-footer b{display:block;color:var(--navy);font-size:20px;line-height:1.55}
+    .addons-footer p{margin:5px 0 0;color:var(--muted);font-size:13px}
+    .addons-footer__button{flex:0 0 auto;min-height:50px;border:1px solid var(--navy);border-radius:9px;background:#fff;color:var(--navy);padding:11px 18px;display:inline-flex;align-items:center;gap:14px;font-weight:900;transition:.2s ease}
+    .addons-footer__button:hover{background:var(--navy);color:#fff;transform:translateY(-1px);box-shadow:0 9px 20px rgba(23,57,87,.14)}
 
     .flow-heading{display:grid;grid-template-columns:.8fr 1.2fr;align-items:end;gap:60px}
     .flow-grid{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
@@ -256,14 +265,15 @@
     .item-group ul{margin:0;padding-left:20px;font-size:13px;color:var(--muted)}
     .items-modal__title{display:flex;align-items:center;gap:12px}
     .items-modal__lead{max-width:720px;margin:0 0 22px;color:var(--muted);font-size:14px;line-height:1.8}
-    #items-main .modal__head{border-bottom-color:#efc2ad}
-    #items-main .modal__body{background:linear-gradient(180deg,#fff 0,#fbfaf6 100%)}
-    #items-main .item-grid{gap:16px}
-    #items-main .item-group{position:relative;overflow:hidden;padding:18px 20px 20px;background:linear-gradient(180deg,#fff 0,#fbfaf6 100%);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:14px;box-shadow:0 8px 22px rgba(32,40,51,.045)}
-    #items-main .item-group__head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
-    #items-main .item-group h3{margin:0;font-size:17px}
-    #items-main .item-group ul{margin:0;padding:12px 0 0 20px;border-top:1px solid #e3e7ea;line-height:1.8}
-    #items-main .item-group li::marker{color:var(--orange)}
+    .items-modal .modal__head{border-bottom-color:#efc2ad}
+    .items-modal .modal__body{background:linear-gradient(180deg,#fff 0,#fbfaf6 100%)}
+    .items-modal .item-grid{gap:16px}
+    .items-modal .item-group{position:relative;overflow:hidden;padding:18px 20px 20px;background:linear-gradient(180deg,#fff 0,#fbfaf6 100%);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:14px;box-shadow:0 8px 22px rgba(32,40,51,.045)}
+    .items-modal .item-group__head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+    .items-modal .item-group h3{margin:0;font-size:17px}
+    .items-modal .item-group__meta{display:block;margin-top:2px;color:var(--muted);font-size:11px;font-weight:700}
+    .items-modal .item-group ul{margin:0;padding:12px 0 0 20px;border-top:1px solid #e3e7ea;line-height:1.8}
+    .items-modal .item-group li::marker{color:var(--orange)}
 
     .form-modal{width:min(760px,100%)}
     .form-progress{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:0 30px 12px}
@@ -328,8 +338,8 @@
       .plans-grid{gap:22px}.plan{padding:24px 20px}.plan.is-active{padding:23px 19px}.plan__price{min-height:74px}
       .plan .btn{width:100%;max-width:260px}
       .plans-note{align-items:flex-start;padding:15px 17px}
-      .addons-header .lead{margin-top:16px}.addon img{height:auto}
-      .addons-footer{display:block;padding:22px 20px}.addons-footer .text-link{margin-top:14px}
+      .addons-header .lead{margin-top:16px}.addon img{height:auto;aspect-ratio:8/5}
+      .addons-footer{display:block;padding:22px 20px}.addons-footer b{font-size:18px}.addons-footer p{font-size:12px}.addons-footer__button{width:100%;justify-content:center;margin-top:18px}
       .flow-grid{grid-template-columns:1fr;padding:16px;gap:4px}
       .flow-step{padding:18px}.flow-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px}
       .phone-stage{height:420px;transform:scale(.86);transform-origin:left top;width:116%;margin-bottom:-46px}
@@ -339,7 +349,7 @@
       .modal__head{padding:18px 20px}.modal__head h2{font-size:19px}.modal__body{padding:22px 20px 30px}
       .item-grid{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr 1fr}.form-progress{margin-inline:20px}
       .items-modal__title{gap:9px}.items-modal__lead{margin-bottom:18px;font-size:13px}
-      #items-main .item-group{padding:16px 17px 18px}
+      .items-modal .item-group{padding:16px 17px 18px}
       .form-actions .btn{min-width:0;flex:1;padding-inline:12px}
       .confirm-row{grid-template-columns:1fr;gap:2px}
     }
@@ -386,6 +396,8 @@
     <symbol id="icon-box" viewBox="0 0 32 32"><path d="m5 10 11-6 11 6-11 6-11-6Z"></path><path d="M5 10v12l11 6 11-6V10M16 16v12"></path><path d="m10.5 7 11 6"></path></symbol>
     <symbol id="icon-calendar" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3"></rect><path d="M10 4v6M22 4v6M5 12h22"></path><circle cx="20.5" cy="20.5" r="3.5"></circle><path d="M20.5 18.5v2.2l1.5 1"></path></symbol>
     <symbol id="icon-team" viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"></circle><circle cx="7.5" cy="12" r="3"></circle><circle cx="24.5" cy="12" r="3"></circle><path d="M9.5 26c0-5 2.8-9 6.5-9s6.5 4 6.5 9"></path><path d="M2.5 25c0-4.2 2.1-7.5 5-7.5 1.4 0 2.6.7 3.5 1.8M29.5 25c0-4.2-2.1-7.5-5-7.5-1.4 0-2.6.7-3.5 1.8"></path></symbol>
+    <symbol id="icon-child" viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"></circle><path d="M8 27c0-6 3.4-10 8-10s8 4 8 10"></path><path d="m7 7 1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z"></path></symbol>
+    <symbol id="icon-paw" viewBox="0 0 32 32"><circle cx="8" cy="11" r="3"></circle><circle cx="14" cy="7" r="3"></circle><circle cx="21" cy="8" r="3"></circle><circle cx="25" cy="14" r="3"></circle><path d="M9 23c0-4 3.3-8 7.5-8s7.5 4 7.5 8c0 3-2.2 5-5 5-1 0-1.8-.5-2.5-1.1-.7.6-1.5 1.1-2.5 1.1-2.8 0-5-2-5-5Z"></path></symbol>
     <symbol id="icon-food-water" viewBox="0 0 32 32"><path d="M8 5h7v4l-2 3v14H6V12l2-3V5Z"></path><path d="M6 17h7M9 9h5"></path><path d="M26 16a4 4 0 0 1-8 0c0-2.8 4-7.5 4-7.5s4 4.7 4 7.5Z"></path></symbol>
     <symbol id="icon-hygiene" viewBox="0 0 32 32"><path d="M9 11h10l2 4v12H7V15l2-4Z"></path><path d="M12 7h8M16 7v4M7 17h14"></path><path d="M25 5v5M22.5 7.5h5M25 13v2"></path></symbol>
     <symbol id="icon-flame" viewBox="0 0 32 32"><path d="M16 4c1.5 5 7 7.2 7 14a7 7 0 0 1-14 0c0-4 2.1-7.3 5.4-10.7.1 3.5 1.6 5.3 3.5 6.7"></path><path d="M16 27a4 4 0 0 1-4-4c0-2.2 1.2-4.1 3-5.8.2 2 1.1 3 2.3 3.8 1.1.7 1.7 1.7 1.7 3a3 3 0 0 1-3 3Z"></path></symbol>
@@ -526,13 +538,13 @@
 
     <section class="section section--blue" id="addons">
       <div class="container">
-        <div class="addons-header"><div><p class="eyebrow">追加パック</p><h2 class="heading heading-sm">家族の事情に合わせて、必要な備えを追加できます。</h2></div><p class="lead">基本セットの食事量は年齢に合わせて調整。さらに、嗜好や衛生用品、ペットなど家庭ごとの事情を追加パックで補えます。</p></div>
+        <div class="addons-header"><p class="eyebrow">追加パック</p><h2 class="heading heading-sm">あなたの家庭に合わせて、<br>必要な備えを。</h2><p class="lead">子ども・女性・ペットなど、標準セットでは補いにくい備えを必要に応じて追加できます。</p></div>
         <div class="addons-grid">
-          <article class="addon"><img src="assets/child.webp" alt="子ども向け食品と安心用品"><div class="addon__body"><span class="addon__type">子ども1人分</span><h3>子ども安心パック</h3><p>食べ慣れた味への置き換え、子ども用マスク、安心カードなど。購入プランに合わせて3日・7日分をご用意。</p><div class="addon__price">3日 3,800円〜／7日 6,800円〜</div></div></article>
-          <article class="addon"><img src="assets/women.webp" alt="女性向け衛生用品"><div class="addon__body"><span class="addon__type">対象者1人分</span><h3>女性衛生パック</h3><p>生理用品、目隠し袋、清拭用品など。普段使っている種類や必要量を確認して調整します。</p><div class="addon__price">3日 3,300円〜／7日 5,500円〜</div></div></article>
-          <article class="addon"><img src="assets/pet.webp" alt="犬猫向けのフードと防災用品"><div class="addon__body"><span class="addon__type">犬10kg以下・猫5kg以下</span><h3>犬・猫基本パック</h3><p>普段の銘柄を確認したフード、水、食器、排泄用品。犬猫は5日・7日分、その他の動物は個別対応。</p><div class="addon__price">5日 7,800円〜／7日 9,800円〜</div></div></article>
+          <article class="addon"><div class="addon__media"><img src="assets/child-v2.webp" alt="子ども向けの食品、マスク、手袋、安心用品をまとめた防災パック"><span class="line-icon addon__icon" aria-hidden="true"><svg><use href="#icon-child"></use></svg></span></div><div class="addon__body"><span class="addon__type">小学生（6〜12歳）・1人分</span><h3>子ども安心パック</h3><p>食べ慣れたおやつ、子ども用マスク・手袋、安心カード、簡易あそび用品を追加します。</p><div class="addon__price"><span>3日 <strong>3,800円</strong></span><span>7日 <strong>6,800円</strong></span><small>税込</small></div></div></article>
+          <article class="addon"><div class="addon__media"><img src="assets/women-v2.webp" alt="生理用品、清拭用品、使い捨て下着、目隠し袋をまとめた防災パック"><span class="line-icon addon__icon" aria-hidden="true"><svg><use href="#icon-hygiene"></use></svg></span></div><div class="addon__body"><span class="addon__type">1人分</span><h3>女性衛生パック</h3><p>生理用品、清拭用品、使い捨て下着、目隠し・防臭袋をまとめて追加します。</p><div class="addon__price"><span>3日 <strong>3,300円</strong></span><span>7日 <strong>5,500円</strong></span><small>税込</small></div></div></article>
+          <article class="addon"><div class="addon__media"><img src="assets/pet-v2.webp" alt="犬猫用のフード、水、食器、排泄用品をまとめた防災パック"><span class="line-icon addon__icon" aria-hidden="true"><svg><use href="#icon-paw"></use></svg></span></div><div class="addon__body"><span class="addon__type">犬10kg以下・猫5kg以下／1頭分</span><h3>犬・猫基本パック</h3><p>普段のフードと水、折りたたみ食器、排泄用品、ペット情報カードを追加します。</p><div class="addon__price"><span>5日 <strong>7,800円</strong></span><span>7日 <strong>9,800円</strong></span><small>税込</small></div></div></article>
         </div>
-        <div class="addons-footer"><div><b>乳幼児・高齢者・アレルギー・食事制限にも対応</b><div>内容を確認し、追加パックまたは個別調整でご提案します。</div></div><button class="text-link js-open-items" type="button" data-modal="items-addon">追加パックの全品目を見る →</button></div>
+        <div class="addons-footer"><div class="addons-footer__copy"><span class="addons-footer__lead">さらに</span><b>乳幼児・高齢者・アレルギー・食事制限にも対応します。</b><p>必要な用品や普段使っている商品を確認し、追加パックまたは個別調整でご提案します。</p></div><button class="addons-footer__button js-open-items" type="button" data-modal="items-addon"><span>追加パックの全品目を見る</span><span aria-hidden="true">→</span></button></div>
       </div>
     </section>
 
@@ -596,12 +608,12 @@
     </div></div></div>
   </div>
 
-  <div class="overlay" id="items-addon" role="dialog" aria-modal="true" aria-labelledby="items-addon-title">
-    <div class="modal"><div class="modal__head"><h2 id="items-addon-title">追加パックの品目例</h2><button class="close js-close" type="button" aria-label="閉じる">×</button></div><div class="modal__body"><div class="item-grid">
-      <section class="item-group"><h3>子ども安心パック</h3><ul><li>子ども向け食品への一部置き換え</li><li>食べ慣れたおやつ</li><li>子ども用マスク・手袋</li><li>迷子・安心カード</li><li>簡易あそび用品</li></ul></section>
-      <section class="item-group"><h3>女性衛生パック</h3><ul><li>生理用品</li><li>サニタリー袋・目隠し袋</li><li>デリケートゾーン用清拭用品</li><li>使い捨て下着</li><li>防臭袋</li></ul></section>
-      <section class="item-group"><h3>犬・猫基本パック</h3><ul><li>普段の銘柄に合わせたフード</li><li>飲料水・折りたたみ食器</li><li>排泄用品・防臭袋</li><li>ペット情報カード</li><li>リード・迷子札チェック</li></ul></section>
-      <section class="item-group"><h3>個別対応</h3><ul><li>乳幼児用品</li><li>高齢者用品</li><li>アレルギー・食事制限</li><li>その他のペット</li><li>キャリー・ケージの個別提案</li></ul></section>
+  <div class="overlay" id="items-addon" role="dialog" aria-modal="true" aria-labelledby="items-addon-title" aria-describedby="items-addon-description">
+    <div class="modal items-modal"><div class="modal__head"><div class="items-modal__title"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-box"></use></svg></span><h2 id="items-addon-title">追加パックの全品目</h2></div><button class="close js-close" type="button" aria-label="閉じる">×</button></div><div class="modal__body"><p class="items-modal__lead" id="items-addon-description">各パックの代表的な内容です。普段使っている商品や個別の事情を確認して調整します。</p><div class="item-grid">
+      <section class="item-group"><div class="item-group__head"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-child"></use></svg></span><div><h3>子ども安心パック</h3><span class="item-group__meta">小学生（6〜12歳）・1人分</span></div></div><ul><li>子ども向け食品への一部置き換え</li><li>食べ慣れたおやつ</li><li>子ども用マスク・手袋</li><li>迷子・安心カード</li><li>簡易あそび用品</li></ul></section>
+      <section class="item-group"><div class="item-group__head"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-hygiene"></use></svg></span><div><h3>女性衛生パック</h3><span class="item-group__meta">1人分</span></div></div><ul><li>生理用品</li><li>サニタリー袋・目隠し袋</li><li>デリケートゾーン用清拭用品</li><li>使い捨て下着</li><li>防臭袋</li></ul></section>
+      <section class="item-group"><div class="item-group__head"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-paw"></use></svg></span><div><h3>犬・猫基本パック</h3><span class="item-group__meta">犬10kg以下・猫5kg以下／1頭分</span></div></div><ul><li>普段の銘柄に合わせたフード</li><li>飲料水・折りたたみ食器</li><li>排泄用品・防臭袋</li><li>ペット情報カード</li><li>リード・迷子札チェック</li></ul></section>
+      <section class="item-group"><div class="item-group__head"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-team"></use></svg></span><div><h3>個別対応</h3><span class="item-group__meta">必要な人・ペットに合わせて調整</span></div></div><ul><li>乳幼児用品</li><li>高齢者用品</li><li>アレルギー・食事制限</li><li>その他のペット</li><li>キャリー・ケージの個別提案</li></ul></section>
     </div></div></div>
   </div>
 
