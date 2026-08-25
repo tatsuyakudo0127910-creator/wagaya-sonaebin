@@ -230,11 +230,11 @@
     .expiry-box{background:var(--cream);padding:11px 12px;border-radius:8px;font-size:11px}
     .email-card .btn{min-height:42px;padding:8px 13px;font-size:12px;margin-top:14px;box-shadow:none}
     .support-heading-accent{color:var(--orange)}
-    .support-points{display:grid;gap:12px;margin:28px 0}
+    .support-points{display:grid;gap:12px;margin:28px 0 0;padding:0;list-style:none}
     .support-point{display:flex;gap:14px;align-items:center;background:var(--cream);border-radius:13px;padding:17px 20px}
     .support-point:nth-child(2){background:#edf4f6}
     .support-point b{display:block;font-size:17px}.support-point__copy span{display:block;font-size:13px;color:var(--muted)}
-    .support-note{margin-top:32px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:12px;text-align:center;font-size:13px;color:var(--muted)}
+    .support-note{margin:13px 0 0;padding:0;text-align:left;font-size:11px;line-height:1.7;color:var(--muted)}
 
     .faq-layout{display:grid;grid-template-columns:310px 1fr;gap:60px;align-items:start}
     .faq-list{border-top:1px solid #bcc6ce}
@@ -574,13 +574,12 @@
     <section class="section section--white" id="support">
       <div class="container">
         <div class="support-layout">
-          <div class="phone-stage" aria-label="期限通知メールのイメージ">
-            <div class="phone"><div class="phone__screen"><b style="display:block;text-align:center;font-size:12px">メール</b><div class="mail-mini">わが家のそなえ便<strong>【期限のお知らせ】交換時期が近い商品があります</strong>対象品一覧と交換候補をご確認ください。</div><div class="mail-mini">配送のお知らせ<strong>商品を発送しました</strong>お届け予定日をご確認ください。</div></div></div>
-            <div class="email-card"><div class="email-card__meta">わが家のそなえ便　期限管理サポート</div><h3>交換時期が近い商品があります</h3><p>最も早い期限の約6か月前に、対象品と交換候補をまとめてお知らせします。</p><div class="expiry-box"><b>今回の対象</b><br>保存食 8点・飲料水 6本</div><button class="btn btn--outline" type="button">対象品と交換候補を見る</button></div>
+          <div class="phone-stage" role="img" aria-label="期限の約6か月前に届く通知メールの画面イメージ">
+            <div class="phone" aria-hidden="true"><div class="phone__screen"><b style="display:block;text-align:center;font-size:12px">メール</b><div class="mail-mini">わが家のそなえ便<strong>【期限のお知らせ】交換時期が近い商品があります</strong>対象品一覧と交換候補をご確認ください。</div><div class="mail-mini">配送のお知らせ<strong>商品を発送しました</strong>お届け予定日をご確認ください。</div></div></div>
+            <div class="email-card" aria-hidden="true"><div class="email-card__meta">わが家のそなえ便　期限管理サポート</div><h3>交換時期が近い商品があります</h3><p>期限の約6か月前に、対象品と交換候補をお知らせします。</p><div class="expiry-box"><b>今回の対象</b><br>保存食 8点・飲料水 6本</div><span class="btn btn--outline">対象品と交換候補を確認</span></div>
           </div>
-          <div><p class="eyebrow">購入後のサポート</p><h2 class="heading heading-sm">忘れやすい期限は、<br><span class="support-heading-accent">約6か月前にお知らせ。</span></h2><p class="lead">購入後も、備蓄が期限切れにならないよう年1回メールでご案内。買い直すものを探す手間も減らします。</p><div class="support-points"><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-checklist"></use></svg></span><div class="support-point__copy"><b>備蓄表で一覧化</b><span>セット内容と期限をまとめ、収納箱の中でも確認できます。</span></div></div><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span><div class="support-point__copy"><b>年1回、期限前に通知</b><span>最も早い期限を基準に、約6か月前を目安にメールでお知らせします。</span></div></div><div class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-refresh"></use></svg></span><div class="support-point__copy"><b>交換商品までご案内</b><span>対象品、交換時期、買い替え候補と購入方法までまとめます。</span></div></div></div></div>
+          <div><p class="eyebrow">購入後のサポート</p><h2 class="heading heading-sm">忘れやすい期限を、<br><span class="support-heading-accent">約6か月前にお知らせ。</span></h2><p class="lead">購入後も、期限管理と買い替えをまとめてサポートします。</p><ul class="support-points"><li class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-checklist"></use></svg></span><div class="support-point__copy"><b>備蓄表で一覧化</b><span>セット内容と期限の一覧を、収納箱に同梱します。</span></div></li><li class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span><div class="support-point__copy"><b>約6か月前に通知</b><span>年1回、最も早い期限を基準にメールでお知らせします。</span></div></li><li class="support-point"><span class="line-icon line-icon--small" aria-hidden="true"><svg><use href="#icon-refresh"></use></svg></span><div class="support-point__copy"><b>交換候補もご案内</b><span>対象品・交換時期・購入方法をまとめて確認できます。</span></div></li></ul><p class="support-note">※期限通知は、セット購入者向けの無料サポートです。</p></div>
         </div>
-        <div class="support-note">月額料金はかかりません。期限通知はセット購入者向けの無料サポートです。</div>
       </div>
     </section>
 
