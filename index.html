@@ -211,8 +211,9 @@
     .flow-step p{font-size:13px;color:var(--muted);margin:0}
     .flow-cta{text-align:center;margin-top:38px}
     .flow-cta .btn{min-width:270px}
-    .flow-bridge{width:max-content;max-width:100%;margin:42px auto 0;display:flex;align-items:center;gap:12px;color:var(--navy);font-size:15px;font-weight:900}
-    .flow-bridge__arrow{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:18px;line-height:1}
+    .flow-bridge{width:max-content;max-width:100%;margin:42px auto 0;display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--navy);font-size:15px;font-weight:900;text-align:center}
+    .flow-bridge__arrow{position:relative;display:block;width:28px;height:18px}
+    .flow-bridge__arrow::after{content:"";position:absolute;left:50%;top:-2px;width:14px;height:14px;border-right:3px solid var(--orange);border-bottom:3px solid var(--orange);border-radius:1px;transform:translateX(-50%) rotate(45deg)}
 
     .support-layout{display:grid;grid-template-columns:1fr 1.12fr;gap:72px;align-items:center}
     .phone-stage{height:480px;position:relative}
@@ -566,7 +567,7 @@
           <li class="flow-step"><div class="flow-step__top"><span class="step-no">STEP 04</span><span class="line-icon" aria-hidden="true"><svg><use href="#icon-box"></use></svg></span></div><h3>ご注文・お届け</h3><p>ご注文確定後、1〜2週間でご自宅へお届けします。</p></li>
         </ol>
         <div class="flow-cta"><button class="btn btn--primary js-open-form" type="button">無料で見積もりを依頼 <span aria-hidden="true">→</span></button></div>
-        <div class="flow-bridge"><span>お届け後は…</span><span class="flow-bridge__arrow" aria-hidden="true">↓</span></div>
+        <div class="flow-bridge"><span>お届け後は…</span><span class="flow-bridge__arrow" aria-hidden="true"></span></div>
       </div>
     </section>
 
